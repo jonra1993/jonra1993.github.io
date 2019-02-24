@@ -1,11 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ site.lang }}">
     <head>
         <!-- Required meta tags -->
-        <meta charset="utf-8">
+		<meta charset="utf-8">
+		<meta name="description" content="{% t site.description %}"/>
+		<meta name="keywords" content="{% t site.keywords %}"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>MeetMe Personal</title>
+		<!-->title>MeetMe Personal</title-->
+		<title>{% t site.name %} - {% t site.tagline %}</title>
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -19,6 +23,8 @@
         <!-- main css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
+
+
     </head>
     <body>
         
@@ -464,6 +470,15 @@
         
         <!--================Footer Area =================-->
         <footer class="footer_area p_120">
+				<a class="active" href="#">{{ site.languageNames[site.lang] }}</a>
+				{% for lang in site.languageNames %}
+				{% if lang[0] == site.lang %} {% continue %} {% endif %}
+				{% if page.namespace %}
+				<a href="{% tl {{ page.namespace }} {{ lang[0] }} %}">{{ lang[1] }}</a>
+				{% else %}
+				<a href="{{ site.baseurl_root }}/{{ lang[0] }}/">{{ lang[1] }}</a>
+				{% endif %}
+				{% endfor %}
         	<div class="container">
         		<div class="row footer_inner">
         			<div class="col-lg-5 col-sm-6">

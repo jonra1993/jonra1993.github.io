@@ -1,0 +1,8 @@
+url: http://www.jonathanvargas.ml
+
+languages: ["en", "es"]
+exclude_from_localizations: ["CNAME"]
+defaultLang: en
+languageNames:
+  es: Spanish
+  en: English
