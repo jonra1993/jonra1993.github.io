@@ -1,0 +1,6 @@
+{
+    "button": {
+        "save": "Guardar {{count}} cambio",
+        "save_plural": "Guardar {{count}} cambios"
+    }
+}
