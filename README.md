@@ -66,3 +66,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+## Description
+This project forks from [https://github.com/nordicgiant2/react-nice-resume](https://github.com/nordicgiant2/react-nice-resume), I made some modifications and adjustments, thanks to the [author](https://github.com/nordicgiant2).
+
+
+vercel: https://jonra1993-github-io-70dlzhzyp.vercel.app/
