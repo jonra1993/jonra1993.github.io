@@ -73,3 +73,5 @@ This project forks from [https://github.com/nordicgiant2/react-nice-resume](http
 
 
 vercel: https://jonra1993-github-io-70dlzhzyp.vercel.app/
+templates: https://dev.to/davidepacilio/35-free-react-templates-and-themes-32ci
+atomic design: https://bradfrost.com/blog/post/atomic-web-design/

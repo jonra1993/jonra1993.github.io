@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Contact extends Component {
-  render() {
+const Contact = (props) => {
 
-    if(this.props.data){
-      var name = this.props.data.name;
-      var street = this.props.data.address.street;
-      var city = this.props.data.address.city;
-      var state = this.props.data.address.state;
-      var zip = this.props.data.address.zip;
-      var phone= this.props.data.phone;
-      var email = this.props.data.email;
-      var message = this.props.data.contactmessage;
+    if(props.data){
+      var name = props.data.name;
+      var street = props.data.address.street;
+      var city = props.data.address.city;
+      var state = props.data.address.state;
+      var zip = props.data.address.zip;
+      var phone= props.data.phone;
+      var email = props.data.email;
+      var message = props.data.contactmessage;
     }
 
     return (
@@ -41,17 +40,17 @@ class Contact extends Component {
 
                   <div>
 						   <label htmlFor="contactName">Name <span className="required">*</span></label>
-						   <input type="text" defaultValue="" size="35" id="contactName" name="contactName" onChange={this.handleChange}/>
+						   <input type="text" defaultValue="" size="35" id="contactName" name="contactName" onChange={props.handleChange}/>
                   </div>
 
                   <div>
 						   <label htmlFor="contactEmail">Email <span className="required">*</span></label>
-						   <input type="text" defaultValue="" size="35" id="contactEmail" name="contactEmail" onChange={this.handleChange}/>
+						   <input type="text" defaultValue="" size="35" id="contactEmail" name="contactEmail" onChange={props.handleChange}/>
                   </div>
 
                   <div>
 						   <label htmlFor="contactSubject">Subject</label>
-						   <input type="text" defaultValue="" size="35" id="contactSubject" name="contactSubject" onChange={this.handleChange}/>
+						   <input type="text" defaultValue="" size="35" id="contactSubject" name="contactSubject" onChange={props.handleChange}/>
                   </div>
 
                   <div>
@@ -112,7 +111,6 @@ class Contact extends Component {
       </div>
    </section>
     );
-  }
 }
 
 export default Contact;
