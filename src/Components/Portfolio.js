@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Portfolio extends Component {
-  render() {
+const Portfolio = (props) => {
 
-    if (this.props.data) {
-      var projects = this.props.data.projects.map(function (projects) {
+    if (props.data) {
+      var projects = props.data.projects.map(function (projects) {
         var projectImage = 'images/portfolio/' + projects.image;
         
         return (
@@ -41,7 +40,6 @@ class Portfolio extends Component {
         </div>
       </section>
     );
-  }
 }
 
 export default Portfolio;
