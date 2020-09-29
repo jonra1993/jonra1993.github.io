@@ -1,9 +1,9 @@
 {
   "main": {
     "name": "Jonathan Vargas",
-    "description": "I am a web development engineer and I use react and python to develop pages. This project is a resume template that can be used as the project home page or resume page",
+    "description": "I am a  technology development consultant",
     "image": "profilepic.png",
-    "bio": "Hello, my name is Jonathan. I am a 26-year-old engineer, passionate about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of society. Many times self-taught so I have extensive knowledge of various disciplines. The activities in my charge I carry out with a lot of energy and enthusiasm, always seeking to obtain the best result. I have worked both as a researcher and as a consultant in projects that require incorporating technological solutions in their products.",
+    "bio": "Hello, my name is Jonathan. I am a 27-year-old engineer, passionate about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of society. Many times self-taught so I have extensive knowledge of various disciplines. The activities in my charge I carry out with a lot of energy and enthusiasm, always seeking to obtain the best result. I have worked both as a researcher and as a consultant in projects that require incorporating technological solutions in their products.",
     "contactmessage": "Here is where you should write your message to readers to have them get in contact with you.",
     "email": "jonathan.vargas1104@gmail.com",
     "phone": "",
@@ -46,64 +46,84 @@
     ]
   },
   "resume": {
-    "skillmessage": "Here you can create a short write-up of your skills to show off to employers",
+    "skillmessage": "",
     "education": [
       {
-        "school": "University?",
-        "degree": "Masters in Beer tasting",
-        "graduated": "April 2007",
-        "description": "Describe your experience at school, what you learned, what useful skills you have acquired etc."
+        "school": "Escuela Politécnica Nacional",
+        "degree": "Electronics and Control Engineering",
+        "graduated": "Febraury 2018",
+        "description": ""
       },
       {
-        "school": "School #1 Maybe College?",
-        "degree": "What did you study 101",
-        "graduated": "March 2003",
-        "description": "Describe your experience at school, what you learned, what useful skills you have acquired etc."
+        "school": "Instituto Nacional Mejía",
+        "degree": "Degree of Science specialty Physics - Mathematics",
+        "graduated": "June 2011",
+        "description": ""
       }
     ],
     "work": [
       {
-        "company": "Awesome Design Studio",
-        "title": "Senior UX God ",
-        "years": "March 2010 - Present",
-        "description": "Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
+        "company": "JRTEC",
+        "title": "CEO",
+        "years": "November 2019 - Present",
+        "description": "At JRTEC I have activities under may charge focused in opening new markets and managing of projects."
+      },      
+      {
+        "company": "Upwork",
+        "title": "Technology consultant",
+        "years": "May 2018 - Present",
+        "description": "As freelance since 2018, I have been working in projects involving iot technologies as MQTT, ROS, web design (python, javascript with reactjs), mobile development (React Native), docker containers, git, linux environments, embedded systems (Arduino, ESP32 and Raspberry pi 3). I have worked in 3D vision using stereoscopic cameras (ZED, Intel Real sense) and LiDARs (Hokuyo, Rplidar, Benewake and Ydlidar)."
       },
       {
-        "company": "Super Cool Studio",
-        "title": "Junior bug fixer",
-        "years": "March 2007 - February 2010",
-        "description": "Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
-      }
+        "company": "Escuela Politécnica Nacional",
+        "title": "Research assistant",
+        "years": "April 2016 - May 2018",
+        "description": "As a research assistant, I had activities under my charge involving 3D reconstruction, Stereoscopic cameras, C ++ programming (Qt), Linux, Neural networks and machine learning with python, 2D and 3D processing."
+      },
+      {
+        "company": "Keyco",
+        "title": "Intern",
+        "years": "June - August 2015",
+        "description": "Assembly of electronic boards (PCBs) for elevators and assistance in the area of ​​electronic design"
+      }      
     ],
     "skills": [
       {
-        "name": "Python",
-        "level": "60%"
+        "name": "English",
+        "level": "80%"
       },
       {
-        "name": "VueJs",
-        "level": "55%"
+        "name": "Python",
+        "level": "70%"
       },
       {
         "name": "ReactJs",
-        "level": "50%"
+        "level": "70%"
       },
       {
-        "name": "CSS",
-        "level": "90%"
-      },
-      {
-        "name": "PHP",
+        "name": "React Native",
         "level": "80%"
       },
       {
-        "name": "Swift",
-        "level": "50%"
+        "name": "Wordpress",
+        "level": "70%"
+      },      
+      {
+        "name": "C++",
+        "level": "60%"
       },
       {
-        "name": "JAVA",
+        "name": "ROS",
+        "level": "60%"
+      },
+      {
+        "name": "AWS Services",
+        "level": "67%"
+      },
+      {
+        "name": "Embedded systems (Arduino Raspberry)",
         "level": "80%"
-      }
+      }      
     ]
   },
   "portfolio": {
