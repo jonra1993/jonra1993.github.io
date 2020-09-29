@@ -31,7 +31,9 @@ const Home = () => {
             <Resume data={resumeData.resume} />
             <Testimonials data={resumeData.testimonials} />
             <Portfolio data={resumeData.portfolio} />
-            <Contact data={resumeData.main} />
+            {
+                //<Contact data={resumeData.main} />
+            }
             <Footer data={resumeData.main} />
         </div>
     );

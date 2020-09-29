@@ -4,7 +4,7 @@ import ParticlesBg  from "particles-bg";
 const Header = (props) => {
 
     if(props.data){
-       var project = props.data.project;
+       var website = props.data.website;
        var github = props.data.github;
       var name = props.data.name;
       var description= props.data.description;
@@ -25,7 +25,11 @@ const Header = (props) => {
             <li><a className="smoothscroll" href="#about">About</a></li>
 	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
             <li><a className="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a className="smoothscroll" href="#contact">Contact</a></li>
+            <li><a href="https://www.upwork.com/fl/jonathanvargas21" target="_blank">Want my help</a></li>
+            {
+               //<li><a className="smoothscroll" href="#contact">Contact</a></li>
+            }
+            
          </ul>
       </nav>
 
@@ -36,8 +40,8 @@ const Header = (props) => {
             <h3>{description}.</h3>
             <hr />
             <ul className="social">
-               <a href={project} className="button btn project-btn"><i className="fa fa-book"></i>Project</a>
                <a href={github} className="button btn github-btn"><i className="fa fa-github"></i>Github</a>
+               <a href={website} className="button btn project-btn"><i className="fa fa-external-link-square"></i>JRTEC</a>
             </ul>
          </div>
       </div>
