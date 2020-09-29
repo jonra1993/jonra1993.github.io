@@ -7,6 +7,7 @@ import About from '../../components/About';
 import Resume from '../../components/Resume';
 import Contact from '../../components/Contact';
 import Portfolio from '../../components/Portfolio';
+import Testimonials from '../../components/Testimonials';
 import {getPersonalDataAction} from '../../redux/actions/personalDataAction'
 
 const Home = () => {
@@ -28,6 +29,7 @@ const Home = () => {
             <Header data={resumeData.main} />
             <About data={resumeData.main} />
             <Resume data={resumeData.resume} />
+            <Testimonials data={resumeData.testimonials} />
             <Portfolio data={resumeData.portfolio} />
             <Contact data={resumeData.main} />
             <Footer data={resumeData.main} />
