@@ -18,8 +18,7 @@ const Footer = (props) => {
            </ul>
 
            <ul className="copyright">
-              <li>&copy; Copyright 2017 Nordic Giant</li>
-              <li>Design by <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></li>
+              <li>Design by <a title="Styleshout" href="https://www.linkedin.com/in/jonathan-ramiro-vargas-suasnavas-a29752b5/">Jonathan Vargas</a></li>
            </ul>
 
         </div>
