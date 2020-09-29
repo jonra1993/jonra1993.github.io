@@ -1,17 +1,15 @@
 import React, {
   Suspense,
   Fragment,
-  lazy
 } from 'react';
 import {
   Switch,
-  Redirect,
   Route
 } from 'react-router-dom';
 //import MainLayout from 'src/layouts/MainLayout';
 import Home from './views/Home';
 import LoadingScreen from './components/LoadingScreen';
-import MainLayout from './layouts/MainLayout';
+//import MainLayout from './layouts/MainLayout';
 
 export const renderRoutes = (routes = []) => (
   <Suspense fallback={<LoadingScreen />}>
@@ -29,9 +27,7 @@ export const renderRoutes = (routes = []) => (
             render={(props) => (
               <Guard>
                 <Layout>
-                  {route.routes
-                    ? renderRoutes(route.routes)
-                    : <Component {...props} />}
+                  {route.routes ? renderRoutes(route.routes) : <Component {...props} />}
                 </Layout>
               </Guard>
             )}
@@ -45,22 +41,8 @@ export const renderRoutes = (routes = []) => (
 const routes = [
   {
     exact: true,
-    path: '/404',
-    component: lazy(() => import('./views/NoFoundView'))
-  },
-  {
-    path: '*',
-    layout: MainLayout,
-    routes: [
-      {
-        exact: true,
-        path: '/',
-        component: Home
-      },
-      {
-        component: () => <Redirect to="/404" />
-      }
-    ]
+    path: '/',
+    component: Home
   }
 ];
 
