@@ -8,9 +8,9 @@ const Header = (props) => {
        var github = props.data.github;
       var name = props.data.name;
       var description= props.data.description;
-      var networks= props.data.social.map(function(network){
-        return <li key={network.name}><a href={network.url}><i className={network.className}></i></a></li>
-      })
+      // var networks= props.data.social.map(function(network){
+      //   return <li key={network.name}><a href={network.url}><i className={network.className}></i></a></li>
+      // })
     }
 
     return (
@@ -25,7 +25,7 @@ const Header = (props) => {
             <li><a className="smoothscroll" href="#about">About</a></li>
 	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
             <li><a className="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a href="https://www.upwork.com/fl/jonathanvargas21" target="_blank">Want my help</a></li>
+            <li><a href="https://www.upwork.com/fl/jonathanvargas21" target="_blank" rel="noopener noreferrer">Want my help</a></li>
             {
                //<li><a className="smoothscroll" href="#contact">Contact</a></li>
             }

@@ -1,35 +1,36 @@
 import React, {
   Suspense,
   Fragment,
+  lazy
 } from 'react';
 import {
   Switch,
+  Redirect,
   Route
 } from 'react-router-dom';
 //import MainLayout from 'src/layouts/MainLayout';
-import Home from './views/Home';
-import LoadingScreen from './components/LoadingScreen';
-//import MainLayout from './layouts/MainLayout';
+import HomeView from 'src/views/HomeView';
+import LoadingScreen from 'src/components/LoadingScreen';
+import MainLayout from 'src/layouts/MainLayout';
 
 export const renderRoutes = (routes = []) => (
   <Suspense fallback={<LoadingScreen />}>
     <Switch>
-      {routes.map((route, i) => {
-        const Guard = route.guard || Fragment;
+      {routes.map((route, index) => {
         const Layout = route.layout || Fragment;
         const Component = route.component;
 
         return (
           <Route
-            key={i}
+            key={index}
             path={route.path}
             exact={route.exact}
             render={(props) => (
-              <Guard>
-                <Layout>
-                  {route.routes ? renderRoutes(route.routes) : <Component {...props} />}
-                </Layout>
-              </Guard>
+              <Layout>
+                {route.routes
+                  ? renderRoutes(route.routes)
+                  : <Component {...props} />}
+              </Layout>
             )}
           />
         );
@@ -42,7 +43,27 @@ const routes = [
   {
     exact: true,
     path: '/',
-    component: Home
+    layout: MainLayout,
+    component: lazy(() => import('src/views/HomeView'))
+  },
+  {
+    exact: true,
+    path: '/404',
+    component: lazy(() => import('src/views/NoFoundView'))
+  },
+  {
+    path: '*',
+    layout: MainLayout,
+    routes: [
+      {
+        exact: true,
+        path: '/',
+        component: HomeView
+      },
+      {
+        component: () => <Redirect to="/404" />
+      }
+    ]
   }
 ];
 

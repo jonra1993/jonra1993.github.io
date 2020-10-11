@@ -1,45 +1,32 @@
 import React from 'react';
-import {
-  Container,
-  Typography,
-  useTheme,
-  useMediaQuery,
-  makeStyles
-} from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
+import { Typography,makeStyles } from '@material-ui/core';
+import Page from 'src/components/Page';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.dark,
-    minHeight: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(3),
-    paddingTop: 80,
-    paddingBottom: 80
-  },
-  image: {
-    maxWidth: '100%',
-    width: 560,
-    maxHeight: 300,
-    height: 'auto'
-  }
+
+const useStyles = makeStyles(() => ({
+  root: {}
 }));
 
 const NotFoundView = () => {
-  //const classes = useStyles();
-  const theme = useTheme();
-  const mobileDevice = useMediaQuery(theme.breakpoints.down('sm'));
+  const classes = useStyles();
 
   return (
-      <Container maxWidth="lg">
-        <Typography
-          align="center"
-          variant={mobileDevice ? 'h4' : 'h1'}
-          color="textPrimary"
-        >
-          404: The page you are looking for isn’t here
-        </Typography>
-      </Container>
+    <Page
+      className={classes.root}
+      title="Home"
+    >
+      <Typography>
+        Not Found View
+      </Typography>
+
+      <RouterLink                 
+        to="/app/dashboard"
+        variant="h5"
+        color="textPrimary"
+        underline="none">DashboardView</RouterLink>
+
+    </Page>
   );
 };
 

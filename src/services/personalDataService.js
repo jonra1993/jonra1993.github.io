@@ -3,11 +3,10 @@ import axios from '../utils/axios';
 //const API = './resumeData.json';
 
 export const getUserData = () => new Promise((resolve, reject) => {
-    axios.get('./resumeData.json')
+    axios.get('/api/resume')
         .then((response) => {
             if (response.status === 200) {
-                //console.log(response.data)
-                resolve(response.data);
+                resolve(response.data.resume);
             } else {
                 //console.log(response.data)
                 reject(response.data.error);

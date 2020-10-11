@@ -1,5 +1,10 @@
 import axios from 'axios';
-const instance = axios.create();
-instance.defaults.timeout = 1000*10;
 
-export default instance;
+const axiosInstance = axios.create();
+
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => Promise.reject((error.response && error.response.data) || 'Something went wrong')
+);
+
+export default axiosInstance;
