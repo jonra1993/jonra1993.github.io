@@ -8,6 +8,7 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
+import ParticlesBg  from "particles-bg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,13 +44,19 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: '90%',
       height: 'auto'
     }
-  }
+  },
+  bubbles: {
+    position: 'fixed',
+    height: '100%'
+ }
 }));
 
 const Hero = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
+    <>
+
     <div
       className={clsx(classes.root, className)}
       {...rest}
@@ -174,11 +181,15 @@ const Hero = ({ className, ...rest }) => {
                   src="https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601438179/wordpress_JRTEC/pexels-photo-220421-2.jpg"
                 />
               </div>
+              <ParticlesBg type="circle" bg={true} className={classes.bubbles}/>
+
             </Box>
           </Grid>
         </Grid>
-      </Container>
+      </Container>    
     </div>
+    <ParticlesBg type="circle" bg={true} className={classes.bubbles}/>
+      </>
   );
 };
 
