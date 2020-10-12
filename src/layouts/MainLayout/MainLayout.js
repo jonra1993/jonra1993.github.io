@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.dark,
     display: 'flex',
     height: '100%',
     overflow: 'hidden',
@@ -15,16 +15,20 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: 'flex',
     flex: '1 1 auto',
+    width: '100%',
     overflow: 'hidden',
-    paddingTop: 64
+    paddingTop: 64,
+
   },
   contentContainer: {
     display: 'flex',
     flex: '1 1 auto',
+    width: '100%',
     overflow: 'hidden'
   },
   content: {
     flex: '1 1 auto',
+    width: '100%',
     height: '100%',
     overflow: 'auto'
   }
@@ -38,7 +42,8 @@ const MainLayout = ({ children }) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-    setMobileNavOpen( open );
+
+    setMobileNavOpen( Boolean(open) );
   };
 
   return (
@@ -47,15 +52,15 @@ const MainLayout = ({ children }) => {
       <div className={classes.wrapper}>
         <div className={classes.contentContainer}>
           <div className={classes.content}>
-            Hola como stas
             {
-              //children
+              children
             }
           </div>
         </div>
       </div>
+      
       {
-        //<Footer/>
+       // <Footer/>
       }
     </div>
   );

@@ -10,6 +10,8 @@ import {
 } from '@material-ui/core';
 //import { SnackbarProvider } from 'notistack';
 import GoogleAnalytics from 'src/components/GoogleAnalytics';
+import GlobalStyles from 'src/components/GlobalStyles';
+import ScrollReset from 'src/components/ScrollReset';
 import useSettings from 'src/hooks/useSettings';
 import { createTheme } from 'src/theme';
 import routes, { renderRoutes } from './routes';
@@ -33,6 +35,8 @@ const App = () => {
         <ThemeProvider theme={theme}>
             <StylesProvider jss={jss}>
                 <Router history={history}>
+                    <GlobalStyles />
+                    <ScrollReset />
                     <GoogleAnalytics />
                     {renderRoutes(routes)}
                 </Router>

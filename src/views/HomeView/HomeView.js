@@ -6,13 +6,17 @@ import ReactGA from 'react-ga';
 import About from './About';
 import Resume from './Resume';
 //import Contact from './Contact';
-import Portfolio from './Portfolio';
+import Hero from './Hero';
+import Features from './Features';
 import Testimonials from './Testimonials';
-import {getPersonalDataAction} from 'src/redux/actions/personalDataAction'
+import Portfolio from './Portfolio'
+import CTA from './CTA';
+import FAQS from './FAQS';
+import { getPersonalDataAction } from 'src/redux/actions/personalDataAction'
 
 const useStyles = makeStyles(() => ({
     root: {}
-  }));
+}));
 
 const HomeView = () => {
     const classes = useStyles();
@@ -31,9 +35,14 @@ const HomeView = () => {
 
     return (
         <Page
-        className={classes.root}
-        title="Home"
-      >
+            className={classes.root}
+            title="Home"
+        >
+            <Hero />
+            <Features />
+            <Testimonials />
+            <CTA />
+            <FAQS />
             <About data={resumeData.main} />
             <Resume data={resumeData.resume} />
             <Testimonials data={resumeData.testimonials} />
@@ -41,7 +50,7 @@ const HomeView = () => {
             {
                 //<Contact data={resumeData.main} />
             }
-      </Page>      
+        </Page>
 
     );
 
