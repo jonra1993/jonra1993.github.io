@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react'
+import GitHubIcon from '@material-ui/icons/GitHub';
+import BusinessIcon from '@material-ui/icons/Business';
+import Clouds from 'vanta/dist/vanta.clouds.min'
+import BIRDS from 'vanta/dist/vanta.birds.min'
+import * as THREE from 'three'
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
@@ -6,15 +11,15 @@ import {
   Container,
   Grid,
   Typography,
-  makeStyles
+  makeStyles,
+  Button
 } from '@material-ui/core';
-import ParticlesBg  from "particles-bg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
-    paddingTop: 200,
-    paddingBottom: 200,
+    paddingTop: 0,
+    paddingBottom: 120,
     [theme.breakpoints.down('md')]: {
       paddingTop: 60,
       paddingBottom: 60
@@ -29,36 +34,69 @@ const useStyles = makeStyles((theme) => ({
     transformStyle: 'preserve-3d',
     perspective: 1500,
     '& > img': {
-      maxWidth: '90%',
+      maxWidth: '80%',
       height: 'auto',
-      transform: 'rotateY(-35deg) rotateX(15deg)',
+      transform: 'rotateY(-15deg) rotateX(5deg)',
       backfaceVisibility: 'hidden',
       boxShadow: theme.shadows[16]
     }
   },
-  shape: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    '& > img': {
-      maxWidth: '90%',
-      height: 'auto'
+  title: {
+    color: '#F4F8F9',
+    [theme.breakpoints.down('md')]: {
+      alignCenter: true
     }
   },
-  bubbles: {
-    position: 'fixed',
-    height: '100%'
- }
+  description: {
+    color: '#D4F8F9',
+    [theme.breakpoints.down('md')]: {
+    }
+  },
+  buttons: {
+    '& > *': {
+      margin: theme.spacing(2),
+    },
+  },  
 }));
 
 const Hero = ({ className, ...rest }) => {
   const classes = useStyles();
 
-  return (
-    <>
+  const [vantaEffect, setVantaEffect] = useState(0)
+  const vantaRef = useRef(null)
 
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(BIRDS({
+        THREE,
+        el: vantaRef.current,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        backgroundColor: 0x232c4a,
+        color1: 0x115f48,
+        color2: 0x971e6,
+        birdSize: 1.20,
+        wingSpan: 23.00,
+        speedLimit: 6.00,
+        separation: 75.00,
+        alignment: 48.00,
+        cohesion: 24.00
+      }))
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy()
+    }
+  }, [vantaEffect])
+
+  return (
     <div
       className={clsx(classes.root, className)}
+      ref={vantaRef}
       {...rest}
     >
       <Container maxWidth="lg">
@@ -78,88 +116,30 @@ const Hero = ({ className, ...rest }) => {
               height="100%"
             >
               <Typography
-                variant="overline"
-                color="secondary"
-              >
-                Introducing
-              </Typography>
-              <Typography
                 variant="h1"
-                color="textPrimary"
+                className={classes.title}
+
               >
-                Devias React Material Kit - PRO
+                Doing things differently
               </Typography>
               <Box mt={3}>
                 <Typography
                   variant="body1"
                   color="textSecondary"
+                  className={classes.description}
                 >
-                  A professional kit that comes with ready-to-use Material-UI© components
-                  developed with one common goal in mind, help you build faster &amp; beautiful
-                  applications. Each component is fully customizable,
-                  responsive and easy to integrate.
+                  I am passionated about innovation and entrepreneurship as well
+                  as disruptive technologies and their application for the benefit of society.
+                  I am always ready to help you turn your ideas into technological products.
                 </Typography>
               </Box>
-              <Box mt={3}>
-                <Grid
-                  container
-                  spacing={3}
-                >
-                  <Grid item>
-                    <Typography
-                      variant="h1"
-                      color="secondary"
-                    >
-                      30+
-                    </Typography>
-                    <Typography
-                      variant="overline"
-                      color="textSecondary"
-                    >
-                      Demo Pages
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant="h1"
-                      color="secondary"
-                    >
-                      UX
-                    </Typography>
-                    <Typography
-                      variant="overline"
-                      color="textSecondary"
-                    >
-                      Complete Flows
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography
-                      variant="h1"
-                      color="secondary"
-                    >
-                      300+
-                    </Typography>
-                    <Typography
-                      variant="overline"
-                      color="textSecondary"
-                    >
-                      Components
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Box>
-              <Box mt={3}>
-                <img
-                  alt="Javascript"
-                  className={classes.technologyIcon}
-                  src="/static/images/javascript.svg"
-                />
-                <img
-                  alt="Typescript"
-                  className={classes.technologyIcon}
-                  src="/static/images/typescript.svg"
-                />
+              <Box mt={3} className={classes.buttons}>
+                  <Button variant="contained" color="primary" startIcon={<GitHubIcon />}>
+                    Github
+                </Button>
+                  <Button variant="contained" color="primary" startIcon={<BusinessIcon />}>
+                    JRTEC
+                </Button>
               </Box>
             </Box>
           </Grid>
@@ -169,27 +149,17 @@ const Hero = ({ className, ...rest }) => {
             md={7}
           >
             <Box position="relative">
-              <div className={classes.shape}>
-                <img
-                  alt="Shapes"
-                  src="https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601438179/wordpress_JRTEC/pexels-photo-220421-2.jpg"
-                />
-              </div>
               <div className={classes.image}>
                 <img
                   alt="Presentation"
-                  src="https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601438179/wordpress_JRTEC/pexels-photo-220421-2.jpg"
+                  src="https://res.cloudinary.com/dnv0qwkrk/image/upload/v1602952758/wordpress_Jonathan/Pngtree_technology_network_data_globe_4869521_tcupiz.png"
                 />
               </div>
-              <ParticlesBg type="circle" bg={true} className={classes.bubbles}/>
-
             </Box>
           </Grid>
         </Grid>
-      </Container>    
+      </Container>
     </div>
-    <ParticlesBg type="circle" bg={true} className={classes.bubbles}/>
-      </>
   );
 };
 
