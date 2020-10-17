@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import ReactGA from 'react-ga';
 import About from './About';
-//import Resume from './About';
+import Resume from './Resume';
 //import Contact from './Contact';
 import Hero from './Hero';
 import Testimonials from './Testimonials';
@@ -40,6 +40,7 @@ const HomeView = () => {
             <Hero data={resumeData.main}/>
             <About data={resumeData.main} />
             <Testimonials data={resumeData.testimonials} />
+            <Resume data={resumeData.resume}/>
             <CTA />
             <FAQS />
             <Portfolio data={resumeData.portfolio} />
