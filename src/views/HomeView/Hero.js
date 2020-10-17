@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },  
 }));
 
-const Hero = ({ className, ...rest }) => {
+const Hero = ({ className, data, ...rest }) => {
   const classes = useStyles();
 
   const [vantaEffect, setVantaEffect] = useState(0)
@@ -120,7 +120,7 @@ const Hero = ({ className, ...rest }) => {
                 className={classes.title}
 
               >
-                Doing things differently
+                {data.title}
               </Typography>
               <Box mt={3}>
                 <Typography
@@ -128,17 +128,15 @@ const Hero = ({ className, ...rest }) => {
                   color="textSecondary"
                   className={classes.description}
                 >
-                  I am passionated about innovation and entrepreneurship as well
-                  as disruptive technologies and their application for the benefit of society.
-                  I am always ready to help you turn your ideas into technological products.
+                  {data.description}
                 </Typography>
               </Box>
               <Box mt={3} className={classes.buttons}>
-                  <Button variant="contained" color="primary" startIcon={<GitHubIcon />}>
+                  <Button variant="contained" color="primary" target="_blank"  href={data.github} startIcon={<GitHubIcon /> }>
                     Github
                 </Button>
-                  <Button variant="contained" color="primary" startIcon={<BusinessIcon />}>
-                    JRTEC
+                  <Button variant="contained" color="primary" target="_blank" href={data.website} startIcon={<BusinessIcon />}>
+                    Company
                 </Button>
               </Box>
             </Box>
@@ -164,7 +162,8 @@ const Hero = ({ className, ...rest }) => {
 };
 
 Hero.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  data: PropTypes.object.isRequired
 };
 
 export default Hero;

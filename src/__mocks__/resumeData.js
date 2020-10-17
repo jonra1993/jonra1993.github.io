@@ -3,8 +3,9 @@ import mock from 'src/utils/mock';
 mock.onGet('/api/resume').reply(() => {
   const resume = {
     "main": {
+      "title": 'Doing things differently',
       "name": "Jonathan Vargas",
-      "description": "I am a  technology development consultant",
+      "description": "I am passionated about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of society. I am always ready to help you turn your ideas into technological products.",
       "image": "profilepic.png",
       "bio": "Hello, my name is Jonathan. I am a 27-year-old engineer, passionate about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of society. Many times self-taught so I have extensive knowledge of various disciplines. The activities in my charge I carry out with a lot of energy and enthusiasm, always seeking to obtain the best result. I have worked both as a researcher and as a consultant in projects that require incorporating technological solutions in their products.",
       "contactmessage": "Here is where you should write your message to readers to have them get in contact with you.",

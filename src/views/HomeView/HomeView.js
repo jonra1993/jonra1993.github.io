@@ -38,7 +38,7 @@ const HomeView = () => {
             className={classes.root}
             title="Home"
         >
-            <Hero />
+            <Hero data={resumeData.main} />
             <Features />
             <Testimonials />
             <CTA />
