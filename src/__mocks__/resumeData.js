@@ -6,7 +6,7 @@ mock.onGet('/api/resume').reply(() => {
       "title": 'Doing things differently',
       "name": "Jonathan Vargas",
       "description": "I am passionated about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of society. I am always ready to help you turn your ideas into technological products.",
-      "image": "profilepic.png",
+      "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1602958453/wordpress_Jonathan/Jonathan_Vargas_o82npf.png",
       "bio": "Hello, my name is Jonathan. I am a 27-year-old engineer, passionate about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of society. Many times self-taught so I have extensive knowledge of various disciplines. The activities in my charge I carry out with a lot of energy and enthusiasm, always seeking to obtain the best result. I have worked both as a researcher and as a consultant in projects that require incorporating technological solutions in their products.",
       "contactmessage": "Here is where you should write your message to readers to have them get in contact with you.",
       "email": "jonathan.vargas1104@gmail.com",
@@ -24,22 +24,26 @@ mock.onGet('/api/resume').reply(() => {
         {
           "name": "linkedin",
           "url": "https://www.linkedin.com/in/jonathan-ramiro-vargas-suasnavas-a29752b5/",
-          "className": "fa fa-linkedin"
+          "iconName": "fab fa-linkedin",
+          "color": '#157CB6'
         },
         {
           "name": "instagram",
           "url": "https://www.instagram.com/jona.ra/?hl=es-la",
-          "className": "fa fa-instagram"
+          "iconName": "fab fa-instagram",
+          "color": '#C93093'
         },
         {
           "name": "github",
           "url": "https://github.com/jonra1993",
-          "className": "fa fa-github"
+          "iconName": "fab fa-github",
+          "color": '#24292E'
         },
         {
           "name": "Upwork",
           "url": "https://www.upwork.com/fl/jonathanvargas21",
-          "className": "fa fa-arrow-circle-o-up"
+          "iconName": "fa fa-suitcase",
+          "color": '#6FDA44'
         }
       ]
     },
@@ -202,8 +206,8 @@ mock.onGet('/api/resume').reply(() => {
     },
     "testimonials": [
       {
-        "user": "Mark Twain",
-        "text": "Twenty years from now you will be more disappointed by the things you didn't do than by the things you did. So let go. Sail away from the safe harbor. Catch the trade winds in your sails. Explore, dream, discover."
+        "author": "Mark Twain",
+        "phrase": "Twenty years from now you will be more disappointed by the things you didn't do than by the things you did. So let go. Sail away from the safe harbor. Catch the trade winds in your sails. Explore, dream, discover."
       }
     ]
   }

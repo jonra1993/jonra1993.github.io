@@ -4,10 +4,9 @@ import { makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import ReactGA from 'react-ga';
 import About from './About';
-import Resume from './Resume';
+//import Resume from './About';
 //import Contact from './Contact';
 import Hero from './Hero';
-import Features from './Features';
 import Testimonials from './Testimonials';
 import Portfolio from './Portfolio'
 import CTA from './CTA';
@@ -38,14 +37,11 @@ const HomeView = () => {
             className={classes.root}
             title="Home"
         >
-            <Hero data={resumeData.main} />
-            <Features />
-            <Testimonials />
+            <Hero data={resumeData.main}/>
+            <About data={resumeData.main} />
+            <Testimonials data={resumeData.testimonials} />
             <CTA />
             <FAQS />
-            <About data={resumeData.main} />
-            <Resume data={resumeData.resume} />
-            <Testimonials data={resumeData.testimonials} />
             <Portfolio data={resumeData.portfolio} />
             {
                 //<Contact data={resumeData.main} />
