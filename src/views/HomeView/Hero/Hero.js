@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, createRef } from 'react'
 import GitHubIcon from '@material-ui/icons/GitHub';
 import BusinessIcon from '@material-ui/icons/Business';
 import Clouds from 'vanta/dist/vanta.clouds.min'
@@ -59,9 +59,9 @@ const useStyles = makeStyles((theme) => ({
   },  
 }));
 
-const Hero = ({ className, data, ...rest }) => {
+const Hero = ({ className, id, data, ...rest }) => {
   const classes = useStyles();
-
+  const hero = createRef();
   const [vantaEffect, setVantaEffect] = useState(0)
   const vantaRef = useRef(null)
 
@@ -95,6 +95,7 @@ const Hero = ({ className, data, ...rest }) => {
 
   return (
     <div
+      id={id}
       className={clsx(classes.root, className)}
       ref={vantaRef}
       {...rest}
@@ -167,11 +168,13 @@ const Hero = ({ className, data, ...rest }) => {
 
 Hero.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  id: PropTypes.string,
 };
 
 Hero.defaultProps = {
   data: null,
+  id: 'hero'
 };
 
 export default Hero;

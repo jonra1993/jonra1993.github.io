@@ -23,6 +23,7 @@ import WorkIcon from '@material-ui/icons/Work';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import InfoIcon from '@material-ui/icons/Info';
 import Logo from 'src/components/Logo';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { THEMES } from 'src/constants';
 //import Settings from './Settings';
 
@@ -129,32 +130,46 @@ const TopBar = ({
           <Link
             className={classes.link}
             color="textSecondary"
-            component={RouterLink}
-            to="/app"
+            component='a'
+            href="#hero"
+            to="#hero"
+            underline="none"
+            variant="body2"
+          >
+            Home
+          </Link>
+          <Link
+            className={classes.link}
+            color="textSecondary"
+            component='a'
+            href="#about"
+            to="#about"
             underline="none"
             variant="body2"
           >
             About
-          </Link>
+          </Link>   
           <Link
             className={classes.link}
             color="textSecondary"
-            component={RouterLink}
-            to="/docs"
+            component='a'
+            href="#resume"
+            to="#resume"
             underline="none"
             variant="body2"
           >
             Resume
-          </Link>
+          </Link>                    
           <Link
             className={classes.link}
             color="textSecondary"
-            component={RouterLink}
-            to="/docs"
+            component='a'
+            href="#portfolio"
+            to="#portfolio"
             underline="none"
             variant="body2"
           >
-            Projects
+            Portfolio
           </Link>
           <Divider className={classes.divider} />
           <Button
