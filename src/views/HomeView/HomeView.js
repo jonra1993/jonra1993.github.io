@@ -87,8 +87,12 @@ const HomeView = () => {
             {resumeData.main !== undefined && <About data={resumeData.main} />}
             {resumeData.testimonials !== undefined && <Testimonials data={resumeData.testimonials} />}
             {resumeData.resume !== undefined && <Resume data={resumeData.resume} />}
-            {resumeData.portfolio !== undefined && <Portfolio data={resumeData.portfolio} />}
-            {resumeData.main !== undefined && <Footer data={resumeData.main} />}
+            {
+                //resumeData.portfolio !== undefined && <Portfolio data={resumeData.portfolio} />
+            }
+            {
+                //resumeData.main !== undefined && <Footer data={resumeData.main} />
+            }
         </Page>
 
     );
