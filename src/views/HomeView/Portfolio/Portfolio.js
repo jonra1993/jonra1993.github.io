@@ -65,7 +65,13 @@ const Portfolio = ({ className, data, width, ...rest }) => {
             <GridListTileBar
               title={tile.title}
               actionIcon={
-                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                <IconButton 
+                  aria-label={`info about ${tile.title}`} 
+                  className={classes.icon}
+                  component="a"
+                  href={tile.url}
+                  target="_blank"
+                >
                   <InfoIcon />
                 </IconButton>
               }
