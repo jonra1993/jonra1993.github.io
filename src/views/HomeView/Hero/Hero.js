@@ -61,7 +61,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Hero = ({ className, id, data, ...rest }) => {
   const classes = useStyles();
-  const hero = createRef();
   const [vantaEffect, setVantaEffect] = useState(0)
   const vantaRef = useRef(null)
 
