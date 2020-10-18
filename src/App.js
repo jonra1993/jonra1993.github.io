@@ -1,26 +1,47 @@
 import React from 'react';
-import { PersistGate } from 'redux-persist/integration/react'
-import { store, persistor } from './redux/store'
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import { Provider } from 'react-redux';
+import { create } from 'jss';
+import rtl from 'jss-rtl';
+import {
+    jssPreset,
+    StylesProvider,
+    ThemeProvider
+} from '@material-ui/core';
+//import { SnackbarProvider } from 'notistack';
+import GoogleAnalytics from 'src/components/GoogleAnalytics';
+import GlobalStyles from 'src/components/GlobalStyles';
+import ScrollReset from 'src/components/ScrollReset';
+import useSettings from 'src/hooks/useSettings';
+import { createTheme } from 'src/theme';
 import routes, { renderRoutes } from './routes';
 
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 const history = createBrowserHistory();
 
 /**
  * Component for the App.
  */
-
 const App = () => {
+    const { settings } = useSettings();
+
+    const theme = createTheme({
+        direction: settings.direction,
+        responsiveFontSizes: settings.responsiveFontSizes,
+        theme: settings.theme
+    });
+
     return (
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+            <StylesProvider jss={jss}>
                 <Router history={history}>
+                    <GlobalStyles />
+                    <ScrollReset />
+                    <GoogleAnalytics />
                     {renderRoutes(routes)}
                 </Router>
-            </PersistGate>
-        </Provider>
+            </StylesProvider>
+        </ThemeProvider>
     );
 };
 
