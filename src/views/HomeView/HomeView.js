@@ -35,7 +35,6 @@ const HomeView = () => {
             className={classes.root}
             title="Home"
         > 
-            {console.log(resumeData)}
             {resumeData.main!==undefined&&<Hero data={resumeData.main}/>}
             {resumeData.main!==undefined&&<About data={resumeData.main} />}
             {resumeData.testimonials!==undefined&&<Testimonials data={resumeData.testimonials} />}
