@@ -13,6 +13,7 @@ import clsx from 'clsx';
 import { getPersonalDataAction } from 'src/redux/actions/personalDataAction'
 import Clouds from 'vanta/dist/vanta.clouds.min'
 import BIRDS from 'vanta/dist/vanta.birds.min'
+import TRUNK from 'vanta/dist/vanta.trunk.min'
 import * as THREE from 'three'
 
 const useStyles = makeStyles((theme) => ({
@@ -31,8 +32,8 @@ const HomeView = () => {
     const dispatch = useDispatch();
     const resumeData = useSelector(state => state.personalDataState.personalData);
     const [name, setName] = useState('Jonathan');
-    const [vantaEffect, setVantaEffect] = useState(0)
-    const vantaRef = useRef()
+    const [vantaEffect, setVantaEffect] = useState(0);
+    const vantaRef = useRef();
 
     useEffect(() => {
         if (!vantaEffect) {
@@ -49,12 +50,12 @@ const HomeView = () => {
             backgroundColor: 0x232c4a,
             color1: 0x115f48,
             color2: 0x971e6,
-            birdSize: 1.20,
-            wingSpan: 23.00,
-            speedLimit: 6.00,
-            separation: 75.00,
-            alignment: 48.00,
-            cohesion: 24.00
+            // birdSize: 1.20,
+            // wingSpan: 23.00,
+            // speedLimit: 6.00,
+            // separation: 75.00,
+            // alignment: 48.00,
+            // cohesion: 24.00
           }))
         }
         return () => {
