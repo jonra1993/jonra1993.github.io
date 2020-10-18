@@ -34,13 +34,13 @@ const HomeView = () => {
         <Page
             className={classes.root}
             title="Home"
-        >
-            <Hero data={resumeData.main}/>
-            <About data={resumeData.main} />
-            <Testimonials data={resumeData.testimonials} />
-            <Resume data={resumeData.resume}/>
-            <Portfolio data={resumeData.portfolio} />
-            <Footer data={resumeData.main}/>
+        > 
+            {resumeData.main!==undefined&&<Hero data={resumeData.main}/>}
+            {resumeData.main!==undefined&&<About data={resumeData.main} />}
+            {resumeData.testimonials!==undefined&&<Testimonials data={resumeData.testimonials} />}
+            {resumeData.resume!==undefined&&<Resume data={resumeData.resume}/>}
+            {resumeData.portfolio!==undefined&&<Portfolio data={resumeData.portfolio} />}
+            {resumeData.main!==undefined&&<Footer data={resumeData.main}/>}
         </Page>
 
     );

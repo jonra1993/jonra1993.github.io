@@ -49,116 +49,124 @@ const About = ({ className, data, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <Container maxWidth="lg">
-        <Typography
-          component="p"
-          variant="overline"
-          color="secondary"
-          align="center"
-        >
-          About me
-        </Typography>
-        <Box mt={8}>
-          <Grid
-            container
-            spacing={3}
+      {
+        data !== null &&
+        <Container maxWidth="lg">
+          <Typography
+            component="p"
+            variant="overline"
+            color="secondary"
+            align="center"
           >
+            About me
+        </Typography>
+          <Box mt={8}>
             <Grid
-              item
-              xs={12}
-              md={4}
+              container
+              spacing={3}
             >
-              <Box display="flex" ml={10} alignContent='center' align='center' alignItems='center'>
-                <Avatar alt="Me" src={data.image} className={classes.avatar} />
-              </Box>
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              md={8}
-            >
-              <Box display="flex">
-                <Box ml={2}>
-                  <Typography
-                    variant="h4"
-                    gutterBottom
-                    color="textPrimary"
-                  >
-                    {data.name}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    gutterBottom
-                  >
-                    {data.bio}
-                  </Typography>
-                  <Typography
-                    variant="h4"
-                    gutterBottom
-                    color="textPrimary"
-                  >
-                    Contacto
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    gutterBottom
-                  >
-                    {data.email}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    gutterBottom
-                  >
-                    {data.address.street} {data.address.city} {data.address.state}
-                  </Typography>
-                  <Typography
-                    variant="h4"
-                    gutterBottom
-                    color="textPrimary"
-                  >
-                    Redes Sociales
-                  </Typography>
-                  <Grid container>
-                    {
-                      data.social.map((net, index) => (
-                        <Grid item key={net.name}>
-                          <IconButton
-                            color="primary"
-                            component="a"
-                            href={net.url}
-                            target="_blank"
-                          >
-                            <Icon style={{ color: net.color }} className={net.iconName}/>
-                          </IconButton>
-                        </Grid>
-                      ))
-                    }
-                  </Grid>
-                  <Button
-                    variant="outlined"
-                    component="a"
-                    href={data.resumedownload}
-                    target="_blank"
-                    startIcon={<CloudDownloadIcon />}
-                  >
-                    Download Resume
-                  </Button>
+              <Grid
+                item
+                xs={12}
+                md={4}
+              >
+                <Box display="flex" ml={10} alignContent='center' align='center' alignItems='center'>
+                  <Avatar alt="Me" src={data.image} className={classes.avatar} />
                 </Box>
-              </Box>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={8}
+              >
+                <Box display="flex">
+                  <Box ml={2}>
+                    <Typography
+                      variant="h4"
+                      gutterBottom
+                      color="textPrimary"
+                    >
+                      {data.name}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      gutterBottom
+                    >
+                      {data.bio}
+                    </Typography>
+                    <Typography
+                      variant="h4"
+                      gutterBottom
+                      color="textPrimary"
+                    >
+                      Contacto
+                  </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      gutterBottom
+                    >
+                      {data.email}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      gutterBottom
+                    >
+                      {data.address.street} {data.address.city} {data.address.state}
+                    </Typography>
+                    <Typography
+                      variant="h4"
+                      gutterBottom
+                      color="textPrimary"
+                    >
+                      Redes Sociales
+                  </Typography>
+                    <Grid container>
+                      {
+                        data.social.map((net, index) => (
+                          <Grid item key={net.name}>
+                            <IconButton
+                              color="primary"
+                              component="a"
+                              href={net.url}
+                              target="_blank"
+                            >
+                              <Icon style={{ color: net.color }} className={net.iconName} />
+                            </IconButton>
+                          </Grid>
+                        ))
+                      }
+                    </Grid>
+                    <Button
+                      variant="outlined"
+                      component="a"
+                      href={data.resumedownload}
+                      target="_blank"
+                      startIcon={<CloudDownloadIcon />}
+                    >
+                      Download Resume
+                  </Button>
+                  </Box>
+                </Box>
+              </Grid>
             </Grid>
-          </Grid>
-        </Box>
-      </Container>
+          </Box>
+        </Container>
+
+      }
     </div>
   );
 };
 
 About.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.object
+  data: PropTypes.object.isRequired
+};
+
+About.defaultProps = {
+  data: null,
 };
 
 export default About;

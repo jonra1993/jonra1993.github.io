@@ -43,6 +43,8 @@ const Portfolio = ({ className, data, width, ...rest }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
+  console.log(data);
+
   return (
     <div
       className={clsx(classes.root, className)}
@@ -59,7 +61,7 @@ const Portfolio = ({ className, data, width, ...rest }) => {
         </Typography>
       </Box>
       <GridList cellHeight={180} cols={matches?1:4} className={classes.gridList}>
-        {data.map((tile) => (
+        {data!==undefined&&data.map((tile) => (
           <GridListTile key={tile.image}>
             <img src={tile.image} alt={tile.title} />
             <GridListTileBar
@@ -85,7 +87,7 @@ const Portfolio = ({ className, data, width, ...rest }) => {
 
 Portfolio.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.array.isRequired
+  data: PropTypes.array
 };
 
 Portfolio.defaultProps = {

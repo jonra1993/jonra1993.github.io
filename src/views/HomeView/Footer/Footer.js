@@ -38,51 +38,55 @@ const Footer = ({ className, data, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-        <Grid container>
-          {
-            data.social.map((net, index) => (
-              <Grid item key={net.name}>
-                <IconButton
-                  color="primary"
-                  component="a"
-                  href={net.url}
-                  target="_blank"
-                >
-                  <Icon style={{ color: '#d4d4d4' }} className={net.iconName} />
-                </IconButton>
-              </Grid>
-            ))
-          }
-        </Grid>
-        <Box my={3}>
-          <Divider />
-        </Box>
+      <Grid container>
+        {
+          data.social.map((net, index) => (
+            <Grid item key={net.name}>
+              <IconButton
+                color="primary"
+                component="a"
+                href={net.url}
+                target="_blank"
+              >
+                <Icon style={{ color: '#d4d4d4' }} className={net.iconName} />
+              </IconButton>
+            </Grid>
+          ))
+        }
+      </Grid>
+      <Box my={3}>
+        <Divider />
+      </Box>
+      <Grid
+        container
+        spacing={3}
+        component="dl"
+      >
         <Grid
-          container
-          spacing={3}
-          component="dl"
+          item
+          xs={12}
+          md={12}
         >
-          <Grid
-            item
-            xs={12}
-            md={12}
+          <Typography
+            variant="overline"
+            className={classes.designedBy}
+            align='center'
           >
-            <Typography
-              variant="overline"
-              className={classes.designedBy}
-              align='center'
-            >
-              Diseñado por: Jonathan Vargas
+            Diseñado por: Jonathan Vargas
             </Typography>
-          </Grid>
         </Grid>
+      </Grid>
     </div>
   );
 };
 
 Footer.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.array.isRequired
+  data: PropTypes.object.isRequired
+};
+
+Footer.defaultProps = {
+  data: {},
 };
 
 export default Footer;

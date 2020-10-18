@@ -27,8 +27,6 @@ const useStyles = makeStyles((theme) => ({
 const Testimonials = ({ className, data, ...rest }) => {
   const classes = useStyles();
 
-  console.log(data)
-
   return (
     <div
       className={clsx(classes.root, className)}

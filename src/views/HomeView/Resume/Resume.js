@@ -13,36 +13,38 @@ import LevelSection from './LevelSection';
 import SkillsSection from './SkillsSection';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      paddingTop: 100,
-      paddingBottom: 100
-    },
+  root: {
+    paddingTop: 100,
+    paddingBottom: 100
+  },
 
-  }));
+}));
 
 const Resume = ({ className, data, ...rest }) => {
-    const classes = useStyles();
+  const classes = useStyles();
 
 
   return (
     <div
-    className={clsx(classes.root, className)}
-    {...rest}
-  >
-    <Container maxWidth="md">
-      <LevelSection title='Education' data={data.education}/>
-      <Divider/>
-      <LevelSection title='Work' data={data.work}/>
-      <Divider/>
-      <SkillsSection title='Skills' data={data.skills}/>
-    </Container>
-    </div>    
+      className={clsx(classes.root, className)}
+      {...rest}
+    >
+      {data !== undefined &&
+        <Container maxWidth="md">
+          <LevelSection title='Education' data={data.education} />
+          <Divider />
+          <LevelSection title='Work' data={data.work} />
+          <Divider />
+          <SkillsSection title='Skills' data={data.skills} />
+        </Container>
+      }
+    </div>
   );
 }
 
 Resume.propTypes = {
-    className: PropTypes.string,
-    data: PropTypes.object.isRequired
-  };
+  className: PropTypes.string,
+  data: PropTypes.object.isRequired
+};
 
 export default Resume;

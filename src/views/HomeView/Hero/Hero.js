@@ -100,7 +100,9 @@ const Hero = ({ className, data, ...rest }) => {
       {...rest}
     >
       <Container maxWidth="lg">
-        <Grid
+        {
+          data!==null&&
+          <Grid
           container
           spacing={3}
         >
@@ -156,7 +158,9 @@ const Hero = ({ className, data, ...rest }) => {
             </Box>
           </Grid>
         </Grid>
-      </Container>
+      
+        }
+        </Container>
     </div>
   );
 };
@@ -164,6 +168,10 @@ const Hero = ({ className, data, ...rest }) => {
 Hero.propTypes = {
   className: PropTypes.string,
   data: PropTypes.object.isRequired
+};
+
+Hero.defaultProps = {
+  data: null,
 };
 
 export default Hero;
