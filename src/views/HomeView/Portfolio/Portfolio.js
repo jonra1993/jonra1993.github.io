@@ -43,8 +43,6 @@ const Portfolio = ({ className, id, data, width, ...rest }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
-  console.log(data);
-
   return (
     <div
       id={id}
@@ -62,7 +60,7 @@ const Portfolio = ({ className, id, data, width, ...rest }) => {
         </Typography>
       </Box>
       <GridList cellHeight={180} cols={matches?1:4} className={classes.gridList}>
-        {data!==undefined&&data.map((tile) => (
+        {data&&data.map((tile) => (
           <GridListTile key={tile.image}>
             <img src={tile.image} alt={tile.title} />
             <GridListTileBar
