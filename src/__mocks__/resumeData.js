@@ -128,82 +128,80 @@ mock.onGet('/api/resume').reply(() => {
         }
       ]
     },
-    "portfolio": {
-      "projects": [
-        {
-          "title": "Cam3D",
-          "category": "Android application focused on adding functionality to packaging, connects consumers with useful content of a product.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398518/wordpress_Jonathan/cam3D2-1.png",
-          "url": "https://play.google.com/store/apps/details?id=com.JRtec.Cam3D"
-        },
-        {
-          "title": "Lev3D",
-          "category": "Interactive cards using augmented reality, its system allows the 3D models to be loaded dynamically since they can be downloaded over the internet allowing the size of the application to be reduced. The Lev3D application can be found in the google play store.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398513/wordpress_Jonathan/portfolio13.jpg",
-          "url": "https://play.google.com/store/apps/details?id=com.JRtec.Lev3D"
-        },
-        {
-          "title": "Nav3D",
-          "category": "This is an undertaking of Christmas cards using augmented reality thanks to the application for android devices Nav3D. There are 5 different models with a different animation in three dimensions alluding to Christmas.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398545/wordpress_Jonathan/portfolio12.jpg",
-          "url": "https://play.google.com/store/apps/details?id=com.JRtec.Nav3d"
-        },
-        {
-          "title": "AUDIO Run",
-          "category": "This project was developed for the blind athlete Luis Calo, in collaboration with Banco General Rumiñahui and Santuario agency. It consists of an obstacle detector and an android application “AUDIO Run”, the same one that allows the athlete to guide him through a track through an audio controller.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398513/wordpress_Jonathan/portfolio11.jpg",
-          "url": "https://youtu.be/1q-popOcQ5A"
-        },
-        {
-          "title": "3D Stereoscopic",
-          "category": "This was my final project to earn my degree as an electronics and control engineer. It consisted of performing a 3D reconstruction using the ZED stereoscopic camera to locate the closest obstacle within a scene. This work was part of the PIMI-1512 project of the National Polytechnic School.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398535/wordpress_Jonathan/portfolio10.jpg",
-          "url": "https://jonra1993.github.io/3D-Stereoscopic/"
-        },
-        {
-          "title": "3D LiDAR",
-          "category": "This research project was carried out within the PIMI-1512 project of the National Polytechnic School. It focuses on performing a 3D LiDAR reconstruction of an environment to find the closest object. For which it uses a Raspberry pi 3, python and a Hokuyo laser",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398515/wordpress_Jonathan/portfolio9.jpg",
-          "url": "https://jonra1993.github.io/3D-LiDAR/"
-        },
-        {
-          "title": "Serial Video",
-          "category": "This is a practical serial communication project between a web application using Nodejs and an Arduino board. By means of a button connected to the arduino board, a signal is sent to the web application to show a specific video.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398514/wordpress_Jonathan/portfolio8.jpg",
-          "url": "https://jonra1993.github.io/VideoSerial/"
-        },
-        {
-          "title": "Videobooth",
-          "category": "This project was made to be implemented in an advertising campaign. It is a videobooth capable of recording video and saving it in the local memory of the device in webm format, it also incorporates some filters by default. Understand the use of HTML5, JavaScript, and css.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398517/wordpress_Jonathan/portfolio7.jpg",
-          "url": "https://jonra1993.github.io/VideoBooth/"
-        },
-        {
-          "title": "Projects using Arduino",
-          "category": "This project contemplates the use of the Arduino board to carry out practical exercises such as a bar-ball controller, temperature controller, bluetooth connection, among others.",
-          "image": "images/portfolio/arduino2.png",
-          "url": "https://jonra1993.github.io/Arduino_Examples/"
-        },
-        {
-          "title": "Arduino Course",
-          "category": "In this project you will find both documentation and example codes for the Arduino board. This material served as a guide for the training of some members of the robotics club of the National Polytechnic School.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398519/wordpress_Jonathan/portfolio3.jpg",
-          "url": "https://jonra1993.github.io/Arduino_Course/"
-        },
-        {
-          "title": "Xmega Microcontrollers",
-          "category": "Practical examples using Xmega microcontrollers from the Atmel AVR family, using Atmel Studio software with its ASF module. These examples cover basic and complex topics such as timers, serial communication, PMWs, ADC, DAC, among others.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398520/wordpress_Jonathan/portfolio2.jpg",
-          "url": "https://jonra1993.github.io/Xmega_Examples/"
-        },
-        {
-          "title": "Atmega Microcontrollers",
-          "category": "Practical examples using Atmega type microcontrollers (328P and 164P). The software used was Atmel Studio 7.2.",
-          "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398520/wordpress_Jonathan/portfolio1.jpg",
-          "url": "https://jonra1993.github.io/Atmega_Examples/"
-        }
-      ]
-    },
+    "portfolio": [
+      {
+        "title": "Cam3D",
+        "category": "Android application focused on adding functionality to packaging, connects consumers with useful content of a product.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398518/wordpress_Jonathan/cam3D2-1.png",
+        "url": "https://play.google.com/store/apps/details?id=com.JRtec.Cam3D"
+      },
+      {
+        "title": "Lev3D",
+        "category": "Interactive cards using augmented reality, its system allows the 3D models to be loaded dynamically since they can be downloaded over the internet allowing the size of the application to be reduced. The Lev3D application can be found in the google play store.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398513/wordpress_Jonathan/portfolio13.jpg",
+        "url": "https://play.google.com/store/apps/details?id=com.JRtec.Lev3D"
+      },
+      {
+        "title": "Nav3D",
+        "category": "This is an undertaking of Christmas cards using augmented reality thanks to the application for android devices Nav3D. There are 5 different models with a different animation in three dimensions alluding to Christmas.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398545/wordpress_Jonathan/portfolio12.jpg",
+        "url": "https://play.google.com/store/apps/details?id=com.JRtec.Nav3d"
+      },
+      {
+        "title": "AUDIO Run",
+        "category": "This project was developed for the blind athlete Luis Calo, in collaboration with Banco General Rumiñahui and Santuario agency. It consists of an obstacle detector and an android application “AUDIO Run”, the same one that allows the athlete to guide him through a track through an audio controller.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398513/wordpress_Jonathan/portfolio11.jpg",
+        "url": "https://youtu.be/1q-popOcQ5A"
+      },
+      {
+        "title": "3D Stereoscopic",
+        "category": "This was my final project to earn my degree as an electronics and control engineer. It consisted of performing a 3D reconstruction using the ZED stereoscopic camera to locate the closest obstacle within a scene. This work was part of the PIMI-1512 project of the National Polytechnic School.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398535/wordpress_Jonathan/portfolio10.jpg",
+        "url": "https://jonra1993.github.io/3D-Stereoscopic/"
+      },
+      {
+        "title": "3D LiDAR",
+        "category": "This research project was carried out within the PIMI-1512 project of the National Polytechnic School. It focuses on performing a 3D LiDAR reconstruction of an environment to find the closest object. For which it uses a Raspberry pi 3, python and a Hokuyo laser",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398515/wordpress_Jonathan/portfolio9.jpg",
+        "url": "https://jonra1993.github.io/3D-LiDAR/"
+      },
+      {
+        "title": "Serial Video",
+        "category": "This is a practical serial communication project between a web application using Nodejs and an Arduino board. By means of a button connected to the arduino board, a signal is sent to the web application to show a specific video.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398514/wordpress_Jonathan/portfolio8.jpg",
+        "url": "https://jonra1993.github.io/VideoSerial/"
+      },
+      {
+        "title": "Videobooth",
+        "category": "This project was made to be implemented in an advertising campaign. It is a videobooth capable of recording video and saving it in the local memory of the device in webm format, it also incorporates some filters by default. Understand the use of HTML5, JavaScript, and css.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398517/wordpress_Jonathan/portfolio7.jpg",
+        "url": "https://jonra1993.github.io/VideoBooth/"
+      },
+      {
+        "title": "Projects using Arduino",
+        "category": "This project contemplates the use of the Arduino board to carry out practical exercises such as a bar-ball controller, temperature controller, bluetooth connection, among others.",
+        "image": "images/portfolio/arduino2.png",
+        "url": "https://jonra1993.github.io/Arduino_Examples/"
+      },
+      {
+        "title": "Arduino Course",
+        "category": "In this project you will find both documentation and example codes for the Arduino board. This material served as a guide for the training of some members of the robotics club of the National Polytechnic School.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398519/wordpress_Jonathan/portfolio3.jpg",
+        "url": "https://jonra1993.github.io/Arduino_Course/"
+      },
+      {
+        "title": "Xmega Microcontrollers",
+        "category": "Practical examples using Xmega microcontrollers from the Atmel AVR family, using Atmel Studio software with its ASF module. These examples cover basic and complex topics such as timers, serial communication, PMWs, ADC, DAC, among others.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398520/wordpress_Jonathan/portfolio2.jpg",
+        "url": "https://jonra1993.github.io/Xmega_Examples/"
+      },
+      {
+        "title": "Atmega Microcontrollers",
+        "category": "Practical examples using Atmega type microcontrollers (328P and 164P). The software used was Atmel Studio 7.2.",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398520/wordpress_Jonathan/portfolio1.jpg",
+        "url": "https://jonra1993.github.io/Atmega_Examples/"
+      }
+    ],
     "testimonials": [
       {
         "author": "Mark Twain",

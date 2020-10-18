@@ -43,9 +43,6 @@ const About = ({ className, data, ...rest }) => {
     };
   }, []);
 
-  const fixIconNames = (string) => {
-    return (string.replace(/\.?([A-Z])/g, function (x, y) { return "_" + y.toLowerCase() }).replace(/^_/, ""))
-  }
 
   return (
     <div

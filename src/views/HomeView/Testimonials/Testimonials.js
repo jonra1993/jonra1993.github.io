@@ -36,7 +36,7 @@ const Testimonials = ({ className, data, ...rest }) => {
     >
       <Container maxWidth="md">
         {data.map((testimonial, index) => (
-          <Box>
+          <Box key={testimonial.phrase}>
             <Typography
               variant="h3"
               align="center"
@@ -70,7 +70,10 @@ const Testimonials = ({ className, data, ...rest }) => {
 
 Testimonials.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.object.isRequired
+  data: PropTypes.array.isRequired
+};
+Testimonials.defaultProps = {
+  data: [],
 };
 
 export default Testimonials;

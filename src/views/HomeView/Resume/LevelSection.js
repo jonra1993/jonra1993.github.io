@@ -63,35 +63,35 @@ const LevelSection = ({ className, title, data, ...rest }) => {
                     xs={12}
                     md={8}
                 >
-                        {
-                            data.map((item, index) => (
-                                <Box ml={2} mb={5}>
-                                    <Typography
-                                        variant="h3"
-                                        gutterBottom
-                                        color="textPrimary"
-                                    >
-                                        {item.institution}
-                                    </Typography>
-                                    <Typography
-                                        variant="body1"
-                                        color="textPrimary"
-                                        gutterBottom
-                                        className={classes.title2}
-                                    >
-                                        {item.title} &bull; {item.years}
-                                    </Typography>
-                                    <Typography
-                                        variant="body1"
-                                        color="textPrimary"
-                                        gutterBottom
-                                        className={classes.description}
-                                    >
-                                        {item.description}
-                                    </Typography>
-                                </Box>
-                            ))
-                        }
+                    {
+                        data.map((item, index) => (
+                            <Box key={item.institution+classes.title2} ml={2} mb={5}>
+                                <Typography
+                                    variant="h3"
+                                    gutterBottom
+                                    color="textPrimary"
+                                >
+                                    {item.institution}
+                                </Typography>
+                                <Typography
+                                    variant="body1"
+                                    color="textPrimary"
+                                    gutterBottom
+                                    className={classes.title2}
+                                >
+                                    {item.title} &bull; {item.years}
+                                </Typography>
+                                <Typography
+                                    variant="body1"
+                                    color="textPrimary"
+                                    gutterBottom
+                                    className={classes.description}
+                                >
+                                    {item.description}
+                                </Typography>
+                            </Box>
+                        ))
+                    }
                 </Grid>
             </Grid>
         </Box>

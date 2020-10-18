@@ -1,45 +1,89 @@
 import React from 'react';
+import InfoIcon from '@material-ui/icons/Info';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
-const Portfolio = (props) => {
+import {
+  GridList,
+  GridListTile,
+  GridListTileBar,
+  ListSubheader,
+  Box,
+  Typography,
+  makeStyles,
+  IconButton,
+  Icon,
+  useTheme
+} from '@material-ui/core';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-    if (props.data) {
-      var projects = props.data.projects.map(function (projects) {
-        var projectImage = projects.image;
-        
-        return (
-          <div key={projects.title} className="columns portfolio-item">
-            <div className="item-wrap">
-              <a href={projects.url} title={projects.title}>
-                <img alt={projects.title} src={projectImage} />
-                <div className="overlay">
-                  <div className="portfolio-item-meta">
-                    <h5>{projects.title}</h5>
-                    <p>{projects.category}</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        )
-      })
-    }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+    paddingBottom: 20,
+    paddingTop: 100,
+  },
+  gridList: {
+    width: '100%',
+    height: 'auto',
+    paddingLeft: '5%',
+    paddingRight: '5%',
+  },
+  icon: {
+    color: 'rgba(255, 255, 255, 0.54)',
+  },
+}));
 
-    return (
-      <section id="portfolio">
+const Portfolio = ({ className, data, width, ...rest }) => {
+  const classes = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
-        <div className="row">
-
-          <div className="twelve columns collapsed">
-
-            <h1>Check Out Some of My Works.</h1>
-
-            <div id="portfolio-wrapper" className="bgrid-quarters s-bgrid-thirds cf">
-              {projects}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
+  return (
+    <div
+      className={clsx(classes.root, className)}
+      {...rest}
+    >
+      <Box display="flex" mb={10} alignContent='center' align='center' alignItems='center'>
+        <Typography
+          variant="h1"
+          gutterBottom
+          color="textPrimary"
+          className={classes.title}
+        >
+          CHECK OUT SOME OF MY WORKS
+        </Typography>
+      </Box>
+      <GridList cellHeight={180} cols={matches?1:4} className={classes.gridList}>
+        {data.map((tile) => (
+          <GridListTile key={tile.image}>
+            <img src={tile.image} alt={tile.title} />
+            <GridListTileBar
+              title={tile.title}
+              actionIcon={
+                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                  <InfoIcon />
+                </IconButton>
+              }
+            />
+          </GridListTile>
+        ))}
+      </GridList>
+    </div>
+  );
 }
+
+Portfolio.propTypes = {
+  className: PropTypes.string,
+  data: PropTypes.array.isRequired
+};
+
+Portfolio.defaultProps = {
+  data: [],
+};
 
 export default Portfolio;

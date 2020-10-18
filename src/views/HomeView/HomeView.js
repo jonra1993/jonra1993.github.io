@@ -5,12 +5,10 @@ import Page from 'src/components/Page';
 import ReactGA from 'react-ga';
 import About from './About';
 import Resume from './Resume';
-//import Contact from './Contact';
 import Hero from './Hero';
 import Testimonials from './Testimonials';
 import Portfolio from './Portfolio'
-import CTA from './CTA';
-import FAQS from './FAQS';
+import Footer from './Footer';
 import { getPersonalDataAction } from 'src/redux/actions/personalDataAction'
 
 const useStyles = makeStyles(() => ({
@@ -41,12 +39,8 @@ const HomeView = () => {
             <About data={resumeData.main} />
             <Testimonials data={resumeData.testimonials} />
             <Resume data={resumeData.resume}/>
-            <CTA />
-            <FAQS />
             <Portfolio data={resumeData.portfolio} />
-            {
-                //<Contact data={resumeData.main} />
-            }
+            <Footer data={resumeData.main}/>
         </Page>
 
     );

@@ -91,7 +91,7 @@ const SkillsSection = ({ className, title, data, ...rest }) => {
                 >
                     {
                         data.map((item, index) => (
-                            <Box ml={2} mb={5}>
+                            <Box key={item.name} ml={2} mb={5}>
                                 <Typography
                                     variant="h3"
                                     gutterBottom
