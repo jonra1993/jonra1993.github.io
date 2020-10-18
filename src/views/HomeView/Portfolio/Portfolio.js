@@ -61,6 +61,7 @@ const Portfolio = ({ className, data, width, ...rest }) => {
         </Typography>
       </Box>
       <GridList cellHeight={180} cols={matches?1:4} className={classes.gridList}>
+        {console.log(data)}
         {data!==undefined&&data.map((tile) => (
           <GridListTile key={tile.image}>
             <img src={tile.image} alt={tile.title} />
