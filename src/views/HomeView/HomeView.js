@@ -32,7 +32,7 @@ const HomeView = () => {
     const resumeData = useSelector(state => state.personalDataState.personalData);
     const [name, setName] = useState('Jonathan');
     const [vantaEffect, setVantaEffect] = useState(0)
-    const vantaRef = useRef(null)
+    const vantaRef = useRef()
 
     useEffect(() => {
         if (!vantaEffect) {
@@ -88,10 +88,10 @@ const HomeView = () => {
             {resumeData.testimonials !== undefined && <Testimonials data={resumeData.testimonials} />}
             {resumeData.resume !== undefined && <Resume data={resumeData.resume} />}
             {
-                //resumeData.portfolio !== undefined && <Portfolio data={resumeData.portfolio} />
+                resumeData.portfolio !== undefined && <Portfolio data={resumeData.portfolio} />
             }
             {
-                //resumeData.main !== undefined && <Footer data={resumeData.main} />
+                resumeData.main !== undefined && <Footer data={resumeData.main} />
             }
         </Page>
 
