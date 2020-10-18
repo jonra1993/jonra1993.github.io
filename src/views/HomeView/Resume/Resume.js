@@ -20,12 +20,13 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const Resume = ({ className, data, ...rest }) => {
+const Resume = ({ className, id, data, ...rest }) => {
   const classes = useStyles();
 
 
   return (
     <div
+      id={id}
       className={clsx(classes.root, className)}
       {...rest}
     >
@@ -44,7 +45,12 @@ const Resume = ({ className, data, ...rest }) => {
 
 Resume.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  id: PropTypes.string,
+};
+
+Resume.defaultProps = {
+  id: 'resume'
 };
 
 export default Resume;

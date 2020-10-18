@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Portfolio = ({ className, data, width, ...rest }) => {
+const Portfolio = ({ className, id, data, width, ...rest }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
@@ -47,6 +47,7 @@ const Portfolio = ({ className, data, width, ...rest }) => {
 
   return (
     <div
+      id={id}
       className={clsx(classes.root, className)}
       {...rest}
     >
@@ -61,7 +62,6 @@ const Portfolio = ({ className, data, width, ...rest }) => {
         </Typography>
       </Box>
       <GridList cellHeight={180} cols={matches?1:4} className={classes.gridList}>
-        {console.log(data)}
         {data!==undefined&&data.map((tile) => (
           <GridListTile key={tile.image}>
             <img src={tile.image} alt={tile.title} />
@@ -88,11 +88,15 @@ const Portfolio = ({ className, data, width, ...rest }) => {
 
 Portfolio.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.array
+  data: PropTypes.array,
+  id: PropTypes.string,
+
 };
 
 Portfolio.defaultProps = {
   data: [],
+  id: 'portfolio'
+
 };
 
 export default Portfolio;

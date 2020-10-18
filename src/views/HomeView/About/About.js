@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const About = ({ className, data, ...rest }) => {
+const About = ({ className, id, data, ...rest }) => {
   const classes = useStyles();
 
   React.useEffect(() => {
@@ -46,6 +46,7 @@ const About = ({ className, data, ...rest }) => {
 
   return (
     <div
+      id={id}
       className={clsx(classes.root, className)}
       {...rest}
     >
@@ -162,11 +163,15 @@ const About = ({ className, data, ...rest }) => {
 
 About.propTypes = {
   className: PropTypes.string,
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  id: PropTypes.string,
+
 };
 
 About.defaultProps = {
   data: null,
+  id: 'about'
+
 };
 
 export default About;
