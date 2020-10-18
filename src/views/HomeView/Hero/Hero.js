@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useRef, createRef } from 'react'
 import GitHubIcon from '@material-ui/icons/GitHub';
 import BusinessIcon from '@material-ui/icons/Business';
-import Clouds from 'vanta/dist/vanta.clouds.min'
-import BIRDS from 'vanta/dist/vanta.birds.min'
-import * as THREE from 'three'
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 import {
   Box,
   Container,
@@ -15,16 +11,8 @@ import {
   Button
 } from '@material-ui/core';
 
+
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.dark,
-    paddingTop: 0,
-    paddingBottom: 120,
-    [theme.breakpoints.down('md')]: {
-      paddingTop: 60,
-      paddingBottom: 60
-    }
-  },
   technologyIcon: {
     height: 40,
     margin: theme.spacing(1)
@@ -56,53 +44,18 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(2),
     },
-  },  
+  },
 }));
 
-const Hero = ({ className, id, data, ...rest }) => {
+const Hero = ({ className, data, ...rest }) => {
   const classes = useStyles();
-  const [vantaEffect, setVantaEffect] = useState(0)
-  const vantaRef = useRef(null)
-
-  useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(BIRDS({
-        THREE,
-        el: vantaRef.current,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        backgroundColor: 0x232c4a,
-        color1: 0x115f48,
-        color2: 0x971e6,
-        birdSize: 1.20,
-        wingSpan: 23.00,
-        speedLimit: 6.00,
-        separation: 75.00,
-        alignment: 48.00,
-        cohesion: 24.00
-      }))
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
-  }, [vantaEffect])
 
   return (
-    <div
-      id={id}
-      className={clsx(classes.root, className)}
-      ref={vantaRef}
-      {...rest}
-    >
-      <Container maxWidth="lg">
-        {
-          data!==null&&
-          <Grid
+
+    <Container maxWidth="lg">
+      {
+        data !== null &&
+        <Grid
           container
           spacing={3}
         >
@@ -134,11 +87,11 @@ const Hero = ({ className, id, data, ...rest }) => {
                 </Typography>
               </Box>
               <Box mt={3} className={classes.buttons}>
-                  <Button variant="contained" color="primary" target="_blank"  href={data.github} startIcon={<GitHubIcon /> }>
-                    Github
+                <Button variant="contained" color="primary" target="_blank" href={data.github} startIcon={<GitHubIcon />}>
+                  Github
                 </Button>
-                  <Button variant="contained" color="primary" target="_blank" href={data.website} startIcon={<BusinessIcon />}>
-                    Company
+                <Button variant="contained" color="primary" target="_blank" href={data.website} startIcon={<BusinessIcon />}>
+                  Company
                 </Button>
               </Box>
             </Box>
@@ -158,10 +111,8 @@ const Hero = ({ className, id, data, ...rest }) => {
             </Box>
           </Grid>
         </Grid>
-      
-        }
-        </Container>
-    </div>
+      }
+    </Container>
   );
 };
 

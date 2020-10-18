@@ -22,6 +22,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import WorkIcon from '@material-ui/icons/Work';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import InfoIcon from '@material-ui/icons/Info';
+import HomeIcon from '@material-ui/icons/Home';
 import Logo from 'src/components/Logo';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { THEMES } from 'src/constants';
@@ -78,14 +79,21 @@ const TopBar = ({
         [classes.fullList]: anchor === 'top' || anchor === 'bottom',
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {[['Resume', <AccountBoxIcon/>], ['About', <InfoIcon/>], ['Projects',<WorkIcon/>]].map((element, index) => (
+        {[['Home', '#hero', <HomeIcon />], ['Resume', '#resume', <AccountBoxIcon />], ['About', '#about', <InfoIcon />], ['Portfolio', '#portfolio', <WorkIcon />]].map((element, index) => (
           <ListItem button key={element[0]}>
-            <ListItemIcon>{element[1]}</ListItemIcon>
-            <ListItemText primary={element[0]} />
+            <ListItemIcon>{element[2]}</ListItemIcon>
+            <Link
+              className={classes.link}
+              color="textSecondary"
+              onClick={toggleDrawer(false)}
+              href= {element[1]}
+            >
+              {element[0]}
+            </Link>
           </ListItem>
         ))}
       </List>
@@ -130,44 +138,29 @@ const TopBar = ({
           <Link
             className={classes.link}
             color="textSecondary"
-            component='a'
             href="#hero"
             to="#hero"
-            underline="none"
-            variant="body2"
           >
             Home
           </Link>
           <Link
             className={classes.link}
             color="textSecondary"
-            component='a'
             href="#about"
-            to="#about"
-            underline="none"
-            variant="body2"
           >
             About
-          </Link>   
+          </Link>
           <Link
             className={classes.link}
             color="textSecondary"
-            component='a'
             href="#resume"
-            to="#resume"
-            underline="none"
-            variant="body2"
           >
             Resume
-          </Link>                    
+          </Link>
           <Link
             className={classes.link}
             color="textSecondary"
-            component='a'
             href="#portfolio"
-            to="#portfolio"
-            underline="none"
-            variant="body2"
           >
             Portfolio
           </Link>
