@@ -37,7 +37,7 @@ const HomeView = () => {
     useEffect(() => {
         if (!vantaEffect) {
           setVantaEffect(BIRDS({
-            THREE: THREE,
+            THREE,
             el: vantaRef.current,
             mouseControls: true,
             touchControls: true,
