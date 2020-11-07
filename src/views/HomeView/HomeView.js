@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import ReactGA from 'react-ga';
-import About from './About';
-import Resume from './Resume';
-import Hero from './Hero';
-import Testimonials from './Testimonials';
-import Portfolio from './Portfolio'
-import Footer from './Footer';
+import About from './components/About';
+import Resume from './components/Resume';
+import Hero from './components/Hero';
+import Testimonials from './components/Testimonials';
+import Portfolio from './components/Portfolio'
+import Footer from './components/Footer';
 import clsx from 'clsx';
 import { getPersonalDataAction } from 'src/redux/actions/personalDataAction'
 

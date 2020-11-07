@@ -151,7 +151,7 @@ const Hero = ({ className, data, ...rest }) => {
                 <div className={classes.image}>
                   <img
                     alt="Presentation"
-                    src="https://res.cloudinary.com/dnv0qwkrk/image/upload/v1602952758/wordpress_Jonathan/Pngtree_technology_network_data_globe_4869521_tcupiz.png"
+                    src="https://res.cloudinary.com/dnv0qwkrk/image/upload/v1604790122/wordpress_Jonathan/oie_42Yv0CR18gxi_qxnjn7.png"
                   />
                 </div>
               </Box>
