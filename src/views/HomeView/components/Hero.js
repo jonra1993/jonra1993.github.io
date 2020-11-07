@@ -14,6 +14,7 @@ import Clouds from 'vanta/dist/vanta.clouds.min'
 import BIRDS from 'vanta/dist/vanta.birds.min'
 import TRUNK from 'vanta/dist/vanta.trunk.min'
 import * as THREE from 'three'
+import useHeight from 'src/hooks/useHeight';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,17 +63,21 @@ const useStyles = makeStyles((theme) => ({
 const Hero = ({ className, data, ...rest }) => {
   const classes = useStyles();
   const [vantaEffect, setVantaEffect] = useState(0);
+  const height = useHeight();
   const vantaRef = useRef();
+
+  console.log(height);
 
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(BIRDS({
-        THREE,
         el: vantaRef.current,
+        //p5: p5, // use a custom p5 when initializing
+        THREE: THREE, // use a custom THREE when initializing
         mouseControls: true,
         touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
+        gyroControls: true,
+        minHeight: height,
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
@@ -86,6 +91,9 @@ const Hero = ({ className, data, ...rest }) => {
         // alignment: 48.00,
         // cohesion: 24.00
       }))
+    }else{
+      console.log('hi')
+      vantaEffect.resize()
     }
     return () => {
       if (vantaEffect) vantaEffect.destroy()

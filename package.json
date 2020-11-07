@@ -33,6 +33,7 @@
     "moment": "^2.28.0",
     "notistack": "^1.0.1",
     "nprogress": "^0.2.0",
+    "p5": "^1.1.9",
     "particles-bg": "^2.3.12",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
