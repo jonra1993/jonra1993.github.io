@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     height: 'auto',
     paddingLeft: '5%',
     paddingRight: '5%',
+    paddingBottom: '8%'
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',

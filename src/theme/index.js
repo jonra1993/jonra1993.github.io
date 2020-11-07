@@ -5,11 +5,9 @@ import {
   responsiveFontSizes
 } from '@material-ui/core';
 import { THEMES } from 'src/constants';
-import { softShadows, strongShadows } from './shadows';
 import typography from './typography';
 
 const baseOptions = {
-  direction: 'ltr',
   typography,
   overrides: {
     MuiLinearProgress: {
@@ -66,10 +64,9 @@ const themesOptions = [
         secondary: '#5D738D'
       }
     },
-    shadows: softShadows
   },
   {
-    name: THEMES.ONE_DARK,
+    name: THEMES.DARK,
     palette: {
       type: 'dark',
       action: {
@@ -96,37 +93,6 @@ const themesOptions = [
         secondary: '#5D738D'
       }
     },
-    shadows: strongShadows
-  },
-  {
-    name: THEMES.UNICORN,
-    palette: {
-      type: 'dark',
-      action: {
-        active: 'rgba(255, 255, 255, 0.54)',
-        hover: 'rgba(255, 255, 255, 0.04)',
-        selected: 'rgba(255, 255, 255, 0.08)',
-        disabled: 'rgba(255, 255, 255, 0.26)',
-        disabledBackground: 'rgba(255, 255, 255, 0.12)',
-        focus: 'rgba(255, 255, 255, 0.12)'
-      },
-      background: {
-        default: '#2a2d3d',
-        dark: '#222431',
-        paper: '#2a2d3d'
-      },
-      primary: {
-        main: '#001871'
-      },
-      secondary: {
-        main: '#001871'
-      },
-      text: {
-        primary: '#EDEDED',
-        secondary: '#5D738D'
-      }
-    },
-    shadows: strongShadows
   }
 ];
 
@@ -143,7 +109,6 @@ export const createTheme = (config = {}) => {
       {},
       baseOptions,
       themeOptions,
-      { direction: config.direction }
     )
   );
 

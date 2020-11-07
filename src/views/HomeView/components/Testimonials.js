@@ -11,9 +11,12 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#000524',
+    //color: '#000524',
     paddingTop: 128,
-    paddingBottom: 128
+    paddingBottom: 128,
+    background:'linear-gradient(0deg, rgba(48, 151, 202, 0.3), rgba(48, 151, 202, 0.3)), url(https://res.cloudinary.com/dnv0qwkrk/image/upload/v1604789269/wordpress_Jonathan/testimonials-bg_qbf97c.jpg)',
+
+    //backgroundImage: 'url(https://res.cloudinary.com/dnv0qwkrk/image/upload/v1604789269/wordpress_Jonathan/testimonials-bg_qbf97c.jpg)'
   },
   title: {
     fontWeight: theme.typography.fontWeightRegular,
@@ -21,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   phrase: {
     color: '#DFF4F5'
-  },  
+  }
 }));
 
 const Testimonials = ({ className, data, ...rest }) => {
@@ -34,7 +37,7 @@ const Testimonials = ({ className, data, ...rest }) => {
     >
       <Container maxWidth="md">
         {data.map((testimonial, index) => (
-          <Box key={testimonial.phrase}>
+          <Box key={testimonial.phrase} >
             <Typography
               variant="h3"
               align="center"
