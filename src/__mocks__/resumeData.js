@@ -180,7 +180,7 @@ mock.onGet('/api/resume').reply(() => {
       {
         "title": "Projects using Arduino",
         "category": "This project contemplates the use of the Arduino board to carry out practical exercises such as a bar-ball controller, temperature controller, bluetooth connection, among others.",
-        "image": "images/portfolio/arduino2.png",
+        "image": "https://res.cloudinary.com/dnv0qwkrk/image/upload/v1601398518/wordpress_Jonathan/portfolio4.jpg",
         "url": "https://jonra1993.github.io/Arduino_Examples/"
       },
       {
