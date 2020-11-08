@@ -19,10 +19,11 @@
     "axios": "^0.20.0",
     "axios-mock-adapter": "^1.18.2",
     "babel-loader": "^8.1.0",
-    "chart.js": "^2.9.3",
+    "concurrently": "^5.3.0",
     "fg-loadcss": "^3.1.0",
     "firebase": "^7.17.1",
     "formik": "^2.1.5",
+    "gzipper": "^4.3.0",
     "history": "^4.10.1",
     "immer": "^7.0.9",
     "immutable": "^4.0.0-rc.12",
@@ -59,7 +60,20 @@
     "redux-saga": "^1.1.3",
     "redux-thunk": "^2.3.0",
     "three": "^0.121.1",
-    "vanta": "^0.5.21"
+    "vanta": "^0.5.21",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.10.4",
@@ -78,9 +92,11 @@
     "typescript": "^3.9.7"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "concurrently npm:server npm:dev",
+    "server": "node server.js",
+    "dev": "react-scripts start",
+    "build": "react-scripts build && gzipper --verbose ./build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

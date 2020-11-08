@@ -17,14 +17,14 @@ const NotFoundView = () => {
       title="Home"
     >
       <Typography>
-        Not Found View
+        404 Not Found View
       </Typography>
 
       <RouterLink                 
-        to="/app/dashboard"
+        to="/"
         variant="h5"
         color="textPrimary"
-        underline="none">DashboardView</RouterLink>
+        underline="none">Go to Home</RouterLink>
 
     </Page>
   );

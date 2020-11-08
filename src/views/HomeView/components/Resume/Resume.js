@@ -32,9 +32,9 @@ const Resume = ({ className, id, data, ...rest }) => {
     >
       {data !== undefined &&
         <Container maxWidth="md">
-          <LevelSection title='Education' data={data.education} />
-          <Divider />
           <LevelSection title='Work' data={data.work} />
+          <Divider />          
+          <LevelSection title='Education' data={data.education} />
           <Divider />
           <SkillsSection title='Skills' data={data.skills} />
         </Container>
