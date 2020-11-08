@@ -84,12 +84,12 @@ const Hero = ({ className, data, ...rest }) => {
         backgroundColor: 0x232c4a,
         color1: 0x115f48,
         color2: 0x971e6,
-        // birdSize: 1.20,
-        // wingSpan: 23.00,
-        // speedLimit: 6.00,
-        // separation: 75.00,
-        // alignment: 48.00,
-        // cohesion: 24.00
+        birdSize: 1.20,
+        wingSpan: 23.00,
+        speedLimit: 6.00,
+        separation: 75.00,
+        alignment: 48.00,
+        cohesion: 24.00
       }))
     }else{
       console.log('hi')
