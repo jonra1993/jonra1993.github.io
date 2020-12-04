@@ -122,7 +122,7 @@ const About = ({ className, id, data, ...rest }) => {
                       gutterBottom
                       color="textPrimary"
                     >
-                      Redes Sociales
+                      Social
                   </Typography>
                     <Grid container>
                       {
