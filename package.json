@@ -25,7 +25,7 @@
     "formik": "^2.1.5",
     "gzipper": "^4.3.0",
     "history": "^4.10.1",
-    "immer": "^7.0.9",
+    "immer": "^8.0.1",
     "immutable": "^4.0.0-rc.12",
     "jquery": "^3.2.1",
     "js-cookie": "^2.2.1",
