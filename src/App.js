@@ -16,7 +16,7 @@ import routes from './routes';
 const App = () => {
     const content = useRoutes(routes);
     const { settings } = useSettings();
-    useScrollReset();
+    //useScrollReset();
 
 
     const theme = createTheme({

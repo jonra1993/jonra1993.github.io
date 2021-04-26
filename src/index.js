@@ -30,7 +30,7 @@ ReactDOM.render(
 					</StyledEngineProvider>
 				</PersistGate>
 			</Provider>
-		</HelmetProvider>,
+		</HelmetProvider>
     </React.StrictMode>,
 
 	document.getElementById('root')
