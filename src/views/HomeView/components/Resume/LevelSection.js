@@ -1,18 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { loadCSS } from 'fg-loadcss';
-import clsx from 'clsx';
 import {
-    Avatar,
-    Button,
     Box,
-    Container,
     Grid,
     Typography,
     makeStyles,
-    IconButton,
-    Icon,
-    Divider
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 const LevelSection = ({ className, title, data, ...rest }) => {
     const classes = useStyles();
-
     return (
         <Box mt={8}>
             <Grid
@@ -47,7 +38,7 @@ const LevelSection = ({ className, title, data, ...rest }) => {
                     xs={12}
                     md={4}
                 >
-                    <Box display="flex" ml={10} alignContent='center' align='center' alignItems='center'>
+                    <Box display="flex" alignContent='center' align='center' alignItems='center'>
                         <Typography
                             variant="h1"
                             gutterBottom

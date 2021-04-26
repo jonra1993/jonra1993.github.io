@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, createRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import GitHubIcon from '@material-ui/icons/GitHub';
 import BusinessIcon from '@material-ui/icons/Business';
 import PropTypes from 'prop-types';
@@ -10,9 +10,7 @@ import {
   makeStyles,
   Button
 } from '@material-ui/core';
-import Clouds from 'vanta/dist/vanta.clouds.min'
 import BIRDS from 'vanta/dist/vanta.birds.min'
-import TRUNK from 'vanta/dist/vanta.trunk.min'
 import * as THREE from 'three'
 import useHeight from 'src/hooks/useHeight';
 
@@ -65,8 +63,6 @@ const Hero = ({ className, data, ...rest }) => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const height = useHeight();
   const vantaRef = useRef();
-
-  console.log(height);
 
   useEffect(() => {
     if (!vantaEffect) {

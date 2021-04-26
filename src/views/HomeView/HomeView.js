@@ -10,7 +10,8 @@ import Testimonials from './components/Testimonials';
 import Portfolio from './components/Portfolio'
 import Footer from './components/Footer';
 import clsx from 'clsx';
-import { getPersonalDataAction } from 'src/redux/actions/personalDataAction'
+import { getPersonalDataAction } from 'src/redux/slices/personalData';
+import { isValidObject } from 'src/utils/validation';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,6 +32,7 @@ const HomeView = () => {
     const resumeData = useSelector(state => state.personalDataState.personalData);
     const [name, setName] = useState('Jonathan');
 
+    console.log('resumeData', resumeData)
 
     useEffect(() => {
         ReactGA.initialize('UA-110570651-1');
@@ -45,15 +47,15 @@ const HomeView = () => {
         <Page
             title="Home"
         >
-            {resumeData.main &&<Hero data={resumeData.main}/>}
-            {resumeData.main !== undefined && <About data={resumeData.main} />}
-            {resumeData.testimonials !== undefined && <Testimonials data={resumeData.testimonials} />}
-            {resumeData.resume !== undefined && <Resume data={resumeData.resume} />}
+            {isValidObject(resumeData) &&<Hero data={resumeData.main}/>}
+            {isValidObject(resumeData) && <About data={resumeData.main} />}
+            {isValidObject(resumeData) && <Testimonials data={resumeData.testimonials} />}
+            {isValidObject(resumeData) && <Resume data={resumeData.resume} />}
             {
-                resumeData.portfolio !== undefined && <Portfolio data={resumeData.portfolio} />
+                isValidObject(resumeData) && <Portfolio data={resumeData.portfolio} />
             }
             {
-                resumeData.main !== undefined && <Footer data={resumeData.main} />
+                isValidObject(resumeData) && <Footer data={resumeData.main} />
             }
         </Page>
 

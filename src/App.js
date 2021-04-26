@@ -1,46 +1,35 @@
-import React from 'react';
-import { Router } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useRoutes } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import { create } from 'jss';
-import rtl from 'jss-rtl';
-import {
-    jssPreset,
-    StylesProvider,
-    ThemeProvider
-} from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core';
 //import { SnackbarProvider } from 'notistack';
-import GoogleAnalytics from 'src/components/GoogleAnalytics';
 import GlobalStyles from 'src/components/GlobalStyles';
-import ScrollReset from 'src/components/ScrollReset';
+import useScrollReset from './hooks/useScrollReset';
 import useSettings from 'src/hooks/useSettings';
 import { createTheme } from 'src/theme';
-import routes, { renderRoutes } from './routes';
+import routes from './routes';
 
-const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
-const history = createBrowserHistory();
 
 /**
  * Component for the App.
  */
 const App = () => {
+    const content = useRoutes(routes);
     const { settings } = useSettings();
+    useScrollReset();
+
 
     const theme = createTheme({
         direction: settings.direction,
         responsiveFontSizes: settings.responsiveFontSizes,
+        roundedCorners: settings.roundedCorners,
         theme: settings.theme
     });
 
     return (
         <ThemeProvider theme={theme}>
-            <StylesProvider jss={jss}>
-                <Router history={history}>
-                    <GlobalStyles />
-                    <ScrollReset />
-                    <GoogleAnalytics />
-                    {renderRoutes(routes)}
-                </Router>
-            </StylesProvider>
+            <GlobalStyles />
+            {content}
         </ThemeProvider>
     );
 };

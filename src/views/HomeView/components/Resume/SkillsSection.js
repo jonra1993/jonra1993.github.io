@@ -1,18 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { loadCSS } from 'fg-loadcss';
-import clsx from 'clsx';
 import {
-    Avatar,
-    Button,
     Box,
-    Container,
     Grid,
     Typography,
     makeStyles,
-    IconButton,
-    Icon,
-    Divider,
     LinearProgress,
     withStyles
 } from '@material-ui/core';
@@ -51,17 +43,6 @@ const BorderLinearProgress = withStyles((theme) => ({
 
 const SkillsSection = ({ className, title, data, ...rest }) => {
     const classes = useStyles();
-
-    const getRandomColor = () => {
-        var letters = '0123456789ABCDEF';
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
-
-
     return (
         <Box mt={8}>
             <Grid
@@ -73,7 +54,7 @@ const SkillsSection = ({ className, title, data, ...rest }) => {
                     xs={12}
                     md={4}
                 >
-                    <Box display="flex" ml={10} alignContent='center' align='center' alignItems='center'>
+                    <Box display="flex" alignContent='center' align='center' alignItems='center'>
                         <Typography
                             variant="h1"
                             gutterBottom

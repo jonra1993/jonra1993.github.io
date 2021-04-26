@@ -1,120 +1,197 @@
-import _ from 'lodash';
-import {
-  colors,
-  createMuiTheme,
-  responsiveFontSizes
-} from '@material-ui/core';
-import { THEMES } from 'src/constants';
-import typography from './typography';
+import merge from 'lodash/merge';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { THEMES } from '../constants';
+import { lightShadows, darkShadows } from './shadows';
 
 const baseOptions = {
-  typography,
-  overrides: {
+  direction: 'ltr',
+  components: {
+    MuiAvatar: {
+      styleOverrides: {
+        fallback: {
+          height: '75%',
+          width: '75%'
+        }
+      }
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none'
+        }
+      }
+    },
+    MuiCardHeader: {
+      defaultProps: {
+        titleTypographyProps: {
+          variant: 'h6'
+        }
+      }
+    },
     MuiLinearProgress: {
-      root: {
-        borderRadius: 3,
-        overflow: 'hidden'
+      styleOverrides: {
+        root: {
+          borderRadius: 3,
+          overflow: 'hidden'
+        }
       }
     },
     MuiListItemIcon: {
-      root: {
-        minWidth: 32
+      styleOverrides: {
+        root: {
+          minWidth: 'auto',
+          marginRight: '16px'
+        }
       }
+    }
+  },
+  typography: {
+    button: {
+      fontWeight: 600
     },
-    MuiChip: {
-      root: {
-        backgroundColor: 'rgba(0,0,0,0.075)'
-      }
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+    h1: {
+      fontWeight: 600,
+      fontSize: '3.5rem'
+    },
+    h2: {
+      fontWeight: 600,
+      fontSize: '3rem'
+    },
+    h3: {
+      fontWeight: 600,
+      fontSize: '2.25rem'
+    },
+    h4: {
+      fontWeight: 600,
+      fontSize: '2rem'
+    },
+    h5: {
+      fontWeight: 600,
+      fontSize: '1.5rem'
+    },
+    h6: {
+      fontWeight: 600,
+      fontSize: '1.125rem'
+    },
+    overline: {
+      fontWeight: 600
     }
   }
 };
 
-const themesOptions = [
-  {
-    name: THEMES.LIGHT,
-    overrides: {
+const themesOptions = {
+  [THEMES.LIGHT]: {
+    components: {
       MuiInputBase: {
-        input: {
-          '&::placeholder': {
-            opacity: 1,
-            color: colors.blueGrey[600]
+        styleOverrides: {
+          input: {
+            '&::placeholder': {
+              opacity: 0.86,
+              color: '#42526e'
+            }
           }
         }
       }
     },
     palette: {
-      type: 'light',
       action: {
-        active: colors.blueGrey[600]
+        active: '#6b778c'
       },
       background: {
-        default: colors.common.white,
-        dark: '#f4f8f9',
-        paper: colors.common.white
+        default: '#f4f5f7',
+        paper: '#ffffff',
+        testimonial: 'rgba(245, 250, 251, 0.85)'  
       },
+      error: {
+        contrastText: '#ffffff',
+        main: '#f44336'
+      },
+      mode: 'light',
       primary: {
-        main: colors.indigo[600],
-        paleBlue: '#f4f8f9'
+        contrastText: '#ffffff',
+        main: '#5060d0'
       },
-      secondary: {
-        main: '#001871'
+      success: {
+        contrastText: '#ffffff',
+        main: '#4caf50'
       },
       text: {
-        primary: '#343741',
-        secondary: '#5D738D'
+        primary: '#172b4d',
+        secondary: '#6b778c'
+      },
+      warning: {
+        contrastText: '#ffffff',
+        main: '#ff9800'
       }
     },
+    shadows: lightShadows
   },
-  {
-    name: THEMES.DARK,
-    palette: {
-      type: 'dark',
-      action: {
-        active: 'rgba(255, 255, 255, 0.54)',
-        hover: 'rgba(255, 255, 255, 0.04)',
-        selected: 'rgba(255, 255, 255, 0.08)',
-        disabled: 'rgba(255, 255, 255, 0.26)',
-        disabledBackground: 'rgba(255, 255, 255, 0.12)',
-        focus: 'rgba(255, 255, 255, 0.12)'
-      },
-      background: {
-        default: '#C7DBF4',
-        dark: '#1c2025',
-        paper: '#282C34'
-      },
-      primary: {
-        main: '#21A3E3'
-      },
-      secondary: {
-        main: '#21A3E3'
-      },
-      text: {
-        primary: '#EDEDED',
-        secondary: '#5D738D'
+  [THEMES.DARK]: {
+    components: {
+      MuiTableCell: {
+        styleOverrides: {
+          root: {
+            borderBottom: '1px solid rgba(145, 158, 171, 0.24)'
+          }
+        }
       }
     },
+    palette: {
+      background: {
+        default: '#080e26',
+        paper: '#242C4A',
+        testimonial: 'rgba(34, 43, 54, 0.85)'   
+
+      },
+      divider: 'rgba(145, 158, 171, 0.24)',
+      error: {
+        contrastText: '#ffffff',
+        main: '#f44336'
+      },
+      mode: 'dark',
+      primary: {
+        contrastText: '#ffffff',
+        main: '#688eff'
+      },
+      success: {
+        contrastText: '#ffffff',
+        main: '#4caf50'
+      },
+      text: {
+        primary: '#ffffff',
+        secondary: '#919eab'
+      },
+      warning: {
+        contrastText: '#ffffff',
+        main: '#ff9800'
+      }
+    },
+    shadows: darkShadows
   }
-];
+};
 
 export const createTheme = (config = {}) => {
-  let themeOptions = themesOptions.find((theme) => theme.name === config.theme);
+  let themeOptions = themesOptions[config.theme];
 
   if (!themeOptions) {
     console.warn(new Error(`The theme ${config.theme} is not valid`));
-    [themeOptions] = themesOptions;
+    themeOptions = themesOptions[THEMES.LIGHT];
   }
 
-  let theme = createMuiTheme(
-    _.merge(
-      {},
-      baseOptions,
-      themeOptions,
-    )
-  );
+  let theme = createMuiTheme(merge({}, baseOptions, themeOptions, {
+    ...(config.roundedCorners && {
+      shape: {
+        borderRadius: 16
+      }
+    })
+  }, {
+    direction: config.direction
+  }));
 
   if (config.responsiveFontSizes) {
     theme = responsiveFontSizes(theme);
   }
 
   return theme;
-}
+};

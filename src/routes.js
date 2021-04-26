@@ -1,70 +1,41 @@
-import React, {
-  Suspense,
-  Fragment,
-  lazy
-} from 'react';
-import {
-  Switch,
-  Redirect,
-  Route
-} from 'react-router-dom';
-//import MainLayout from 'src/layouts/MainLayout';
-import HomeView from 'src/views/HomeView';
+import React, { Suspense, lazy } from 'react';
 import LoadingScreen from 'src/components/LoadingScreen';
 import MainLayout from 'src/layouts/MainLayout';
 
-export const renderRoutes = (routes = []) => (
+const Loadable = (Component) => (props) => (
   <Suspense fallback={<LoadingScreen />}>
-    <Switch>
-      {routes.map((route, index) => {
-        const Layout = route.layout || Fragment;
-        const Component = route.component;
-
-        return (
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            render={(props) => (
-              <Layout>
-                {route.routes
-                  ? renderRoutes(route.routes)
-                  : <Component {...props} />}
-              </Layout>
-            )}
-          />
-        );
-      })}
-    </Switch>
+    <Component {...props} />
   </Suspense>
 );
 
+
+const HomeView = Loadable(lazy(() => import('src/views/HomeView')));
+const NotFound = Loadable(lazy(() => import('src/views/NoFoundView')));
+
+
 const routes = [
   {
-    exact: true,
-    path: '/',
-    layout: MainLayout,
-    component: lazy(() => import('src/views/HomeView'))
-  },
-  {
-    exact: true,
-    path: '/404',
-    component: lazy(() => import('src/views/NoFoundView'))
-  },
-  {
     path: '*',
-    layout: MainLayout,
-    routes: [
+    element: <MainLayout />,
+    children: [
       {
-        exact: true,
         path: '/',
-        component: HomeView
+        element: <HomeView />
+      },          
+      {
+        path: '404',
+        element: <NotFound />
       },
       {
-        component: () => <Redirect to="/404" />
+        path: '500',
+        element: <NotFound />
+      },
+      {
+        path: '*',
+        element: <NotFound />
       }
     ]
-  }
+  },
 ];
 
 export default routes;

@@ -1,23 +1,39 @@
 import 'src/__mocks__';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import { SettingsProvider } from './contexts/SettingsContext';
+import { BrowserRouter } from 'react-router-dom';
+import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
+import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
+import StyledEngineProvider from '@material-ui/core/StyledEngineProvider';
 import { store, persistor } from 'src/redux/store'
 import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-                <App />
-            </PersistGate>
-        </Provider>,
+	<React.StrictMode>
+		<HelmetProvider>
+			<Provider store={store}>
+				<PersistGate loading={null} persistor={persistor}>
+					<StyledEngineProvider injectFirst>
+						<LocalizationProvider dateAdapter={AdapterDateFns}>
+							<SettingsProvider>
+								<BrowserRouter>
+									<App />
+								</BrowserRouter>
+							</SettingsProvider>
+						</LocalizationProvider>
+					</StyledEngineProvider>
+				</PersistGate>
+			</Provider>
+		</HelmetProvider>,
     </React.StrictMode>,
 
-    document.getElementById('root')
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
