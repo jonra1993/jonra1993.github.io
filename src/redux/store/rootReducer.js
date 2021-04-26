@@ -14,7 +14,6 @@ const rootReducer = (state, action) => {
 }
 
 export const resetAppAction = () => (dispatch) => {
-  console.log('Reset Redux Store')
   dispatch({ type: 'RESET_APP' });
 };
 

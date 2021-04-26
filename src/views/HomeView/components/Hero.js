@@ -88,7 +88,6 @@ const Hero = ({ className, data, ...rest }) => {
         cohesion: 24.00
       }))
     }else{
-      console.log('hi')
       vantaEffect.resize()
     }
     return () => {

@@ -32,18 +32,7 @@ const useStyles = makeStyles((theme) => ({
 const About = ({ className, id, data, ...rest }) => {
   const classes = useStyles();
 
-  React.useEffect(() => {
-    const node = loadCSS(
-      'https://use.fontawesome.com/releases/v5.12.0/css/all.css',
-      document.querySelector('#font-awesome-css'),
-    );
-
-    return () => {
-      node.parentNode.removeChild(node);
-    };
-  }, []);
-
-
+  console.log('data.image', data.image)
   return (
     <div
       id={id}
