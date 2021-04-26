@@ -1,68 +1,28 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core';
-import TopBar from './components/TopBar';
-import Footer from './components/Footer'
+import { Outlet } from 'react-router-dom';
+import { experimentalStyled } from '@material-ui/core/styles';
+import MainNavbar from './components/MainNavbar';
+import MainSidebar from './components/MainSidebar';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.dark,
-    display: 'flex',
-    height: '100%',
-    overflow: 'hidden',
-    width: '100%'
-  },
-  wrapper: {
-    display: 'flex',
-    flex: '1 1 auto',
-    width: '100%',
-    overflow: 'hidden',
-    paddingTop: 64,
-
-  },
-  contentContainer: {
-    display: 'flex',
-    flex: '1 1 auto',
-    width: '100%',
-    overflow: 'hidden'
-  },
-  content: {
-    flex: '1 1 auto',
-    width: '100%',
-    height: '100%',
-    overflow: 'auto'
-  }
+const MainLayoutRoot = experimentalStyled('div')(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+  height: '100%',
+  paddingTop: 64
 }));
 
 const MainLayout = ({ children }) => {
-  const classes = useStyles();
-  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
-
-  const toggleDrawer = (open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setMobileNavOpen( Boolean(open) );
-  };
+  const [isSidebarMobileOpen, setIsSidebarMobileOpen] = useState(false);
 
   return (
-    <div className={classes.root}>
-      <TopBar isMobileNavOpen={isMobileNavOpen} toggleDrawer={toggleDrawer}/>
-      <div className={classes.wrapper}>
-        <div className={classes.contentContainer}>
-          <div className={classes.content}>
-            {
-              children
-            }
-          </div>
-        </div>
-      </div>
-      
-      {
-       //<Footer/>
-      }
-    </div>
+    <MainLayoutRoot>
+      <MainNavbar onSidebarMobileOpen={() => setIsSidebarMobileOpen(true)} />
+      <MainSidebar
+        onMobileClose={() => setIsSidebarMobileOpen(false)}
+        openMobile={isSidebarMobileOpen}
+      />
+      {children || <Outlet />}
+    </MainLayoutRoot>
   );
 };
 

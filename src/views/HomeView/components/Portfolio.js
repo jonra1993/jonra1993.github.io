@@ -4,15 +4,13 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 
 import {
-  GridList,
-  GridListTile,
-  GridListTileBar,
-  ListSubheader,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
   Box,
   Typography,
   makeStyles,
   IconButton,
-  Icon,
   useTheme
 } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -60,11 +58,11 @@ const Portfolio = ({ className, id, data, width, ...rest }) => {
           CHECK OUT SOME OF MY WORKS
         </Typography>
       </Box>
-      <GridList cellHeight={180} cols={matches?1:4} className={classes.gridList}>
+      <ImageList cols={matches?1:4} className={classes.gridList}>
         {data&&data.map((tile) => (
-          <GridListTile key={tile.image}>
+          <ImageListItem key={tile.image}>
             <img src={tile.image} alt={tile.title} />
-            <GridListTileBar
+            <ImageListItemBar
               title={tile.title}
               actionIcon={
                 <IconButton 
@@ -78,9 +76,9 @@ const Portfolio = ({ className, id, data, width, ...rest }) => {
                 </IconButton>
               }
             />
-          </GridListTile>
+          </ImageListItem>
         ))}
-      </GridList>
+      </ImageList>
     </div>
   );
 }

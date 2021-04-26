@@ -1,14 +1,12 @@
-import React, {
-  createContext,
-  useEffect,
-  useState
-} from 'react';
-import _ from 'lodash';
-import { THEMES } from 'src/constants';
+import React, { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { THEMES } from '../constants';
 
-const defaultSettings = {
+const initialSettings = {
+  compact: true,
   direction: 'ltr',
   responsiveFontSizes: true,
+  roundedCorners: true,
   theme: THEMES.LIGHT
 };
 
@@ -20,6 +18,16 @@ export const restoreSettings = () => {
 
     if (storedData) {
       settings = JSON.parse(storedData);
+    } else {
+      settings = {
+        compact: true,
+        direction: 'ltr',
+        responsiveFontSizes: true,
+        roundedCorners: true,
+        theme: window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? THEMES.DARK
+          : THEMES.LIGHT
+      };
     }
   } catch (err) {
     console.error(err);
@@ -35,42 +43,41 @@ export const storeSettings = (settings) => {
 };
 
 const SettingsContext = createContext({
-  settings: defaultSettings,
+  settings: initialSettings,
   saveSettings: () => { }
 });
 
-export const SettingsProvider = ({ settings, children }) => {
-  const [currentSettings, setCurrentSettings] = useState(settings || defaultSettings);
-
-  const handleSaveSettings = (update = {}) => {
-    const mergedSettings = _.merge({}, currentSettings, update);
-
-    setCurrentSettings(mergedSettings);
-    storeSettings(mergedSettings);
-  };
+export const SettingsProvider = (props) => {
+  const { children } = props;
+  const [settings, setSettings] = useState(initialSettings);
 
   useEffect(() => {
     const restoredSettings = restoreSettings();
 
     if (restoredSettings) {
-      setCurrentSettings(restoredSettings);
+      setSettings(restoredSettings);
     }
   }, []);
 
-  useEffect(() => {
-    document.dir = currentSettings.direction;
-  }, [currentSettings]);
+  const saveSettings = (updatedSettings) => {
+    setSettings(updatedSettings);
+    storeSettings(updatedSettings);
+  };
 
   return (
     <SettingsContext.Provider
       value={{
-        settings: currentSettings,
-        saveSettings: handleSaveSettings
+        settings,
+        saveSettings
       }}
     >
       {children}
     </SettingsContext.Provider>
   );
+};
+
+SettingsProvider.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 export const SettingsConsumer = SettingsContext.Consumer;
