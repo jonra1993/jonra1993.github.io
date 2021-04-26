@@ -11,7 +11,6 @@ import {
   Button
 } from '@material-ui/core';
 import BIRDS from 'vanta/dist/vanta.birds.min'
-import * as THREE from 'three'
 import useHeight from 'src/hooks/useHeight';
 
 const useStyles = makeStyles((theme) => ({
@@ -64,36 +63,35 @@ const Hero = ({ className, data, ...rest }) => {
   const height = useHeight();
   const vantaRef = useRef();
 
-  useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(BIRDS({
-        el: vantaRef.current,
-        //p5: p5, // use a custom p5 when initializing
-        THREE: THREE, // use a custom THREE when initializing
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: true,
-        minHeight: height,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        backgroundColor: 0x232c4a,
-        color1: 0x115f48,
-        color2: 0x971e6,
-        birdSize: 1.20,
-        wingSpan: 23.00,
-        speedLimit: 6.00,
-        separation: 75.00,
-        alignment: 48.00,
-        cohesion: 24.00
-      }))
-    }else{
-      vantaEffect.resize()
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
-  }, [vantaEffect])
+  // useEffect(() => {
+  //   if (!vantaEffect) {
+  //     setVantaEffect(BIRDS({
+  //       el: vantaRef.current,
+  //       //p5: p5, // use a custom p5 when initializing
+  //       mouseControls: true,
+  //       touchControls: true,
+  //       gyroControls: true,
+  //       minHeight: height,
+  //       minWidth: 200.00,
+  //       scale: 1.00,
+  //       scaleMobile: 1.00,
+  //       backgroundColor: 0x232c4a,
+  //       color1: 0x115f48,
+  //       color2: 0x971e6,
+  //       birdSize: 1.20,
+  //       wingSpan: 23.00,
+  //       speedLimit: 6.00,
+  //       separation: 75.00,
+  //       alignment: 48.00,
+  //       cohesion: 24.00
+  //     }))
+  //   }else{
+  //     vantaEffect.resize()
+  //   }
+  //   return () => {
+  //     if (vantaEffect) vantaEffect.destroy()
+  //   }
+  // }, [vantaEffect])
 
   return (
     <div
