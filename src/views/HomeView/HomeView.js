@@ -45,7 +45,6 @@ const HomeView = () => {
         <Page
             title="Home"
         >
-            {isValidObject(resumeData) &&<Hero data={resumeData.main}/>}
             {isValidObject(resumeData) && <About data={resumeData.main} />}
             {isValidObject(resumeData) && <Testimonials data={resumeData.testimonials} />}
             {isValidObject(resumeData) && <Resume data={resumeData.resume} />}
