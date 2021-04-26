@@ -15,6 +15,7 @@ import * as serviceWorker from './serviceWorker';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+	<React.StrictMode>
 		<HelmetProvider>
 			<Provider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
@@ -30,7 +31,7 @@ ReactDOM.render(
 				</PersistGate>
 			</Provider>
 		</HelmetProvider>
-    ,
+    </React.StrictMode>,
 
 	document.getElementById('root')
 );
