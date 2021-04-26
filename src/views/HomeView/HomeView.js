@@ -32,13 +32,11 @@ const HomeView = () => {
     const resumeData = useSelector(state => state.personalDataState.personalData);
     const [name, setName] = useState('Jonathan');
 
-    console.log('resumeData', resumeData)
 
     useEffect(() => {
         ReactGA.initialize('UA-110570651-1');
         ReactGA.pageview(window.location.pathname);
         dispatch(getPersonalDataAction());
-        console.log(name);
         setName('I')
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
