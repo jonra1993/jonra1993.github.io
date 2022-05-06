@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import type { FC, ReactNode } from 'react';
 import PropTypes from 'prop-types';

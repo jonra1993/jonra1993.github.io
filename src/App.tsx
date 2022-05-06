@@ -1,4 +1,4 @@
-import { useEffect, Suspense } from 'react';
+// @ts-nocheck
 import type { FC } from 'react';
 import { useRoutes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
