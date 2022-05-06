@@ -1,3 +1,4 @@
+// @ts-nocheck
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import 'react-quill/dist/quill.snow.css';
@@ -15,26 +16,28 @@ import { SettingsProvider } from './contexts/SettingsContext';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from 'src/redux/store';
 
-ReactDOM.render(
-  <StrictMode>
-    <HelmetProvider>
-      <ReduxProvider store={store}>
-        <PersistGate
-          loading={null}
-          persistor={persistor}
-        >
-          <StyledEngineProvider injectFirst>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <SettingsProvider>
-                <BrowserRouter>
-                  <App />
-                </BrowserRouter>
-              </SettingsProvider>
-            </LocalizationProvider>
-          </StyledEngineProvider>
-        </PersistGate>
-      </ReduxProvider>
-    </HelmetProvider>
-  </StrictMode>,
-  document.getElementById('root')
+// @ts-ignore
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLDivElement
+);
+
+root.render(
+  <HelmetProvider>
+    <ReduxProvider store={store}>
+      <PersistGate
+        loading={null}
+        persistor={persistor}
+      >
+        <StyledEngineProvider injectFirst>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <SettingsProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </SettingsProvider>
+          </LocalizationProvider>
+        </StyledEngineProvider>
+      </PersistGate>
+    </ReduxProvider>
+  </HelmetProvider>
 );
