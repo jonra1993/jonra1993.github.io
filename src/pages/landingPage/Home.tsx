@@ -4,9 +4,9 @@ import { Helmet } from 'react-helmet-async';
 import useMounted from 'src/hooks/useMounted';
 import gtm from 'src/lib/gtm';
 import { resumeApi } from 'src/__fakeApi__/resumeApi';
-import { 
-  Hero, 
-  About, 
+import {
+  Hero,
+  About,
   Testimonials,
   Portfolio,
   Footer,
@@ -43,7 +43,9 @@ const Home: FC = () => {
         {resumeData && <About data={resumeData.main} />}
         {resumeData && <Testimonials data={resumeData.testimonials} />}
         {resumeData && <Resume data={resumeData.resume} />}
-        {resumeData && <Portfolio data={resumeData.portfolio} />}
+        {
+          // resumeData && <Portfolio data={resumeData.portfolio} />
+        }
         {resumeData && <Footer data={resumeData.main} />}
       </div>
     </>

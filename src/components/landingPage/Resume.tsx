@@ -23,6 +23,7 @@ const Resume = ({ data, ...rest }) => {
 
   return (
     <div
+      id="resume"
       className={clsx(classes.root)}
       {...rest}
     >

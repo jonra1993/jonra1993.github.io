@@ -4,9 +4,9 @@ class ResumeApi {
       main: {
         title: 'Doing things differently',
         name: 'Jonathan Vargas',
-        description: 'I am passionated about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of society. I am always ready to help you turn your ideas into technological products.',
+        description: 'I am passionated about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of the society. I am always ready to help you turn your ideas into technological products.',
         image: 'https://res.cloudinary.com/dnv0qwkrk/image/upload/v1619405326/wordpress_Jonathan/circle-cropped_fmrmxh.png',
-        bio: 'Hello, my name is Jonathan. I am a 27-year-old engineer, passionate about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of society. Many times self-taught so I have extensive knowledge of various disciplines. The activities in my charge I carry out with a lot of energy and enthusiasm, always seeking to obtain the best result. I have worked both as a researcher and as a consultant in projects that require incorporating technological solutions in their products.',
+        bio: 'Hello, my name is Jonathan. I am an ecuadorian 🇪🇨 Tech Entrepreneur 👨🏻‍💻, Solutions Architect 📲 and Frontend Developer 🎨. \n I believe that technology is a tool with the power to improve most of the problems of our society. Many times self-taught so I have extensive knowledge of various disciplines. The activities in my charge I carry out with a lot of energy and enthusiasm, always seeking to obtain the best result. \n \n I am Interested in Entrepreurship, Insurtech, Conversational AI, Blockchain, Web3 and UI/UX.',
         contactmessage: 'Here is where you should write your message to readers to have them get in contact with you.',
         email: 'jonathan.vargas1104@gmail.com',
         phone: '',
@@ -66,32 +66,30 @@ class ResumeApi {
           {
             institution: 'JRTEC',
             title: 'CEO',
-            years: 'November 2019 - Present',
-            description: 'At JRTEC I have activities under may charge focused in opening new markets and managing of projects.'
+            years: 'Dec 2019 - Present',
+            description: 'At JRTEC I have activities under may charge focused in opening new markets and project management'
           },
           {
             institution: 'Upwork',
             title: 'Technology consultant',
-            years: 'May 2018 - Present',
-            description: 'As freelance since 2018, I have been working in projects involving iot technologies as MQTT, ROS, web design (python, javascript with reactjs), mobile development (React Native), docker containers, git, linux environments, embedded systems (Arduino, ESP32 and Raspberry pi 3). I have worked in 3D vision using stereoscopic cameras (ZED, Intel Real sense) and LiDARs (Hokuyo, Rplidar, Benewake and Ydlidar).'
+            years: 'May 2018 - Jan 2021',
+            description: 'As freelance since 2018, I have been working in projects involving iot technologies as MQTT, ROS, web design (python, javascript with reactjs), mobile development (React Native), docker containers, git, linux environments.'
           },
           {
             institution: 'Escuela Politécnica Nacional',
             title: 'Research assistant',
-            years: 'April 2016 - May 2018',
+            years: 'April 2016 - Dec 2017',
             description: 'As a research assistant, I had activities under my charge involving 3D reconstruction, Stereoscopic cameras, C ++ programming (Qt), Linux, Neural networks and machine learning with python, 2D and 3D processing.'
-          },
-          {
-            institution: 'Keyco',
-            title: 'Intern',
-            years: 'June - August 2015',
-            description: 'Assembly of electronic boards (PCBs) for elevators and assistance in the area of ​​electronic design'
           }
         ],
         skills: [
           {
             name: 'English',
             level: 80
+          },
+          {
+            name: 'Typescript',
+            level: 75
           },
           {
             name: 'Python',
@@ -104,23 +102,7 @@ class ResumeApi {
           {
             name: 'React Native',
             level: 80
-          },
-          {
-            name: 'Wordpress',
-            level: 70
-          },
-          {
-            name: 'C++',
-            level: 60
-          },
-          {
-            name: 'ROS',
-            level: 70
-          },
-          {
-            name: 'AWS Services',
-            level: 67
-          },
+          }
         ]
       },
       portfolio: [
