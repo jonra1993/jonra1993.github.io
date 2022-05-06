@@ -32,19 +32,12 @@ const About = ({ data, ...rest }) => {
   console.log('data.image', data.image)
   return (
     <div
+      id="about"
       className={clsx(classes.root)}
       {...rest}
     >
       {
         <Container maxWidth="lg">
-          <Typography
-            component="p"
-            variant="overline"
-            color="secondary"
-            align="center"
-          >
-            About me
-          </Typography>
           <Box mt={8}>
             <Grid
               container
@@ -90,7 +83,7 @@ const About = ({ data, ...rest }) => {
                       gutterBottom
                       color="textPrimary"
                     >
-                      Contacto
+                      Contact
                     </Typography>
                     <Typography
                       variant="body1"

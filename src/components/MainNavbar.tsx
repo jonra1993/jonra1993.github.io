@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 import Switch from 'react-switch';
-import { AppBar, Box, Button, Divider, IconButton, Toolbar, makeStyles, Link } from '@material-ui/core';
+import { AppBar, Box, Button, Divider, IconButton, Toolbar, makeStyles, Link, alpha, experimentalStyled } from '@material-ui/core';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import Brightness2Icon from '@material-ui/icons/Brightness2';
 import MenuIcon from 'src/icons/Menu';
@@ -69,11 +69,18 @@ const MainNavbar: FC<MainNavbarProps> = (props) => {
     handleChangeTheme(field, newTheme);
   };
 
+  const AppBarStyled = experimentalStyled(AppBar)(({ theme }) => ({
+    borderBottomColor: 'divider',
+    borderBottomWidth: 1,
+    backdropFilter: 'blur(14px)',
+    boxShadow: `inset 0px -1px 1px ${theme.palette.mode === 'dark' ? theme.palette.primary : theme.palette.grey[100]}`,
+    backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.background.paper, 0.72) : 'rgba(255,255,255,0.80)',
+  }));
+
   return (
-    <AppBar
+    <AppBarStyled
       elevation={0}
       sx={{
-        backgroundColor: 'background.paper',
         color: 'text.secondary',
       }}
     >
@@ -134,13 +141,6 @@ const MainNavbar: FC<MainNavbarProps> = (props) => {
             href="#resume"
           >
             Resume
-          </Link>
-          <Link
-            className={classes.link}
-            color="primary"
-            href="#portfolio"
-          >
-            Portfolio
           </Link>
         </Box>
         <Box
@@ -229,7 +229,7 @@ const MainNavbar: FC<MainNavbarProps> = (props) => {
         />
       </Toolbar>
       <Divider />
-    </AppBar>
+    </AppBarStyled>
   );
 };
 
