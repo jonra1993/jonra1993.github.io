@@ -14,12 +14,7 @@ export default function Home() {
 
   return (
     <div>
-      <Hero
-        title='Doing things differently'
-        description='I am passionated about innovation and entrepreneurship as well as disruptive technologies and their application for the benefit of the society. I am always ready to help you turn your ideas into technological products.'
-        github='https://github.com/jonra1993'
-        website='https://www.allient.io'
-      />
+      <Hero/>
     </div>
   );
 }
