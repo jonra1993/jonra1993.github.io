@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useEffect} from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';
@@ -16,6 +16,7 @@ export interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>

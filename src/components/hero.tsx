@@ -1,49 +1,34 @@
-import React from 'react';
-import { styled } from '@mui/system';
-import { Typography, Button } from '@mui/material';
+import { Box, Button, Container, Grid, Typography } from '@mui/material';
+import OfficeCanvas from 'src/components/office';
 
-const HeroContainer = styled('div')`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: ${(props) => props.theme.palette.primary.main};
-  color: ${(props) => props.theme.palette.primary.contrastText};
-`;
-
-const HeroTitle = styled(Typography)`
-  margin-bottom: ${(props) => props.theme.spacing(2)};
-`;
-
-const HeroSubtitle = styled(Typography)`
-  margin-bottom: ${(props) => props.theme.spacing(4)};
-`;
-
-const HeroButton = styled(Button)`
-  color: ${(props) => props.theme.palette.primary.contrastText};
-  border-color: ${(props) => props.theme.palette.primary.contrastText};
-`;
-
-interface HeroProps {
-  title: string;
-  subtitle: string;
-  buttonText: string;
-  onButtonClick: () => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ title, subtitle, buttonText, onButtonClick }) => {
+const HeroSection: React.FC = () => {
   return (
-    <HeroContainer>
-      <HeroTitle variant="h2" >
-        {title}
-      </HeroTitle>
-      <HeroSubtitle variant="h4">{subtitle}</HeroSubtitle>
-      <HeroButton variant="outlined" onClick={onButtonClick}>
-        {buttonText}
-      </HeroButton>
-    </HeroContainer>
+    <Box sx={{ bgcolor: '#f5f5f5', height: '100vh', display: 'flex', alignItems: 'center' }}>
+      <Container sx={{ px: "10%" }}>
+        <Grid container alignItems="center" spacing={8}>
+          <Grid item xs={12} md={4} >
+            <Box display="flex" flexDirection="column" alignItems="flex-start">
+              <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
+                Hi, My name is Jonathan
+              </Typography>
+              <Typography variant="subtitle1" sx={{ mb: 4 }}>
+                I love creating awesome tech solutions
+              </Typography>
+              <Button variant="contained" color="primary" sx={{ borderRadius: 5 }}>
+                Get in Touch
+              </Button>
+
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={8} >
+            <Box display="flex" sx={{ alignItems: { xs: "center", md: "flex-end", height: 500 } }}>
+              <OfficeCanvas />
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 
-export default Hero;
+export default HeroSection;
