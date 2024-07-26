@@ -17,7 +17,7 @@ class ResumeApi {
           state: '-Ecuador',
           zip: '170702'
         },
-        website: 'http://jrtec.io',
+        website: 'https://www.allient.io',
         resumedownload: 'files/english-1.pdf',
         social: [
           {

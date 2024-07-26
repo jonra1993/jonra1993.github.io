@@ -24,8 +24,8 @@ const sections = [
         href: 'https://github.com/jonra1993'
       },
       {
-        title: 'JRTEC',
-        href: 'https://www.jrtec.io'
+        title: 'Allient',
+        href: 'https://www.www.allient.io'
       },
       {
         title: 'Upwork',
