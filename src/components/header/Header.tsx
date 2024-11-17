@@ -1,36 +1,46 @@
-import React, { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import MainNav from "./MainNav";
-import MobileNav from "./MobileNav";
+import { HStack } from '@/components/Stack';
+import MainNav from './MainNav';
+import MobileNav from './MobileNav';
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
-export const Header: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Toggle theme function
-  const toggleTheme = () => {
-    console.log("toggleTheme");
-    const newTheme = isDarkMode ? "light" : "dark";
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
-    localStorage.setItem("theme", newTheme);
-    setIsDarkMode(newTheme === "dark");
-  };
-
-  // Check for saved theme on initial load
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setIsDarkMode(savedTheme === "dark");
-    if (savedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    }
+    const changeBackground = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', changeBackground);
+
+    return () => document.removeEventListener('scroll', changeBackground);
   }, []);
 
   return (
-    <header className="w-full border-b">
-      <div className="flex h-14 items-center px-4">
+    <header
+      className={cn(
+        'sticky top-0 w-full border-b border-border transition-colors duration-200',
+        'backdrop-blur-sm hover:backdrop-blur-md bg-white/70 shadow-md saturate-150',
+        isScrolled && 'border-transparent bg-background/80 shadow-lg'
+      )}
+    >
+      <HStack className="h-16 justify-between px-6 sm:px-10 md:px-5">
+        {/* Desktop */}
         <MainNav />
+
+        {/* Mobile */}
         <MobileNav />
-      </div>
+
+        {/* Desktop & mobile */}
+        <h1>
+          <a href="/">Jonathan Vargas</a>
+        </h1>
+      </HStack>
     </header>
   );
-};
+}

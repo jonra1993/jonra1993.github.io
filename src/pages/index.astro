@@ -5,15 +5,31 @@ import Card from "../components/Card.astro";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-astro";
 import { ButtonWithIcon } from "@/components/ButtonWithIcon";
-import Navbar from "@/components/Navbar";
+
+const paragraphs = Array.from({ length: 20 }, (_, i) => `This is paragraph ${i + 1}. Add more content here to see the scroll effect.`);
+
 ---
 
 <Layout title="Welcome to Astro.">
-  <Navbar client:load />
   <main class="container mx-auto max-w-7xl px-6 flex-grow">
+    <h1>Home page</h1>
     <section class="flex flex-col items-center justify-center">
 
     </section>
+    <div class="max-w-3xl mx-auto">
+      <!-- Main content goes here -->
+      <h2 class="text-2xl font-bold">Welcome to the Scrollable Main Content</h2>
+      <p class="mt-4">
+        This is a scrollable area. You can add more content here, and if it exceeds the viewport height, it will be scrollable.
+      </p>
+    
+      <!-- Example of long content -->
+      <div class="mt-8 space-y-6">
+        {paragraphs.map((text) => (
+          <p>{text}</p>
+        ))}
+      </div>
+    </div>
 
   </main>
 </Layout>

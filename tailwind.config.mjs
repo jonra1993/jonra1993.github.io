@@ -4,6 +4,16 @@ export default {
   content: [
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
   ],
+  prefix: "",
+  container: {
+    center: true,
+    padding: "2rem",
+    screens: {
+      'xs': '480px',    // Custom extra small breakpoint
+      '3xl': '1920px',  // Custom extra large breakpoint
+      "2xl": "1400px",
+    },
+  },
   theme: {
     extend: {
       borderRadius: {
