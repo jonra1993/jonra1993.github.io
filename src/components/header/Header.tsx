@@ -34,12 +34,7 @@ export default function Header() {
         <MainNav />
 
         {/* Mobile */}
-        <MobileNav />
-
-        {/* Desktop & mobile */}
-        <h1>
-          <a href="/">Jonathan Vargas</a>
-        </h1>
+        <MobileNav />        
       </HStack>
     </header>
   );

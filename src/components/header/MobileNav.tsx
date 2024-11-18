@@ -7,13 +7,19 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { AlignJustify, Apple } from 'lucide-react';
+import { useState } from 'react';
 
 export default function MobileNav() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className='md:hidden'>
-      <Sheet>
-        <SheetTrigger>
-          <AlignJustify />
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger asChild>
+          {/* Wrap AlignJustify with a button */}
+          <button aria-label="Open Menu">
+            <AlignJustify className="text-xl cursor-pointer" />
+          </button>
         </SheetTrigger>
         <SheetContent side='left'>
           <a href='/'>
