@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+      @apply bg-gray-900 text-gray-100;
+    }
+  }
+  
+  .gradient-text {
+    background: linear-gradient(90deg, #00f5a0 0%, #00d9f5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .card-gradient {
+    background: linear-gradient(145deg, rgba(16, 20, 24, 0.5) 0%, rgba(0, 217, 245, 0.1) 100%);
+    backdrop-filter: blur(10px);
+  }
+  
+  .hover-card {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .hover-card:hover {
+    transform: translateY(-5px);
+  }
