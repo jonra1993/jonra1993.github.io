@@ -13,6 +13,7 @@ import {
   GraduationCap,
   Quote,
 } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export const About = () => {
   const [count, setCount] = useState(0);
@@ -28,10 +29,7 @@ export const About = () => {
         >
           <h2 className="text-3xl font-bold mb-6 gradient-text">About Me</h2>
           <p className="text-gray-300 leading-relaxed mb-6">
-            I'm a passionate software expert with over a decade of experience in
-            building scalable applications and leading development teams. My
-            expertise spans across full-stack development, cloud architecture,
-            and emerging technologies.
+            {siteConfig.about.bio}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>

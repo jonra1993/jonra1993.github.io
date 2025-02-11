@@ -1,3 +1,12 @@
+import {
+  Github,
+  Linkedin,
+  Instagram,
+  ArrowUpNarrowWide,
+  Mail,
+  BriefcaseBusiness
+} from "lucide-react";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
@@ -66,4 +75,37 @@ export const siteConfig = {
     discord: "https://discord.gg/9b6yyZKmH4",
     sponsor: "https://patreon.com/jrgarciadev",
   },
+  about: {
+    name: "Jonathan Vargas",
+    bio: "Hello, my name is Jonathan. I am an ecuadorian 🇪🇨 Tech Entrepreneur 👨🏻‍💻, Solutions Architect 📲 and Frontend Developer 🎨. I believe that technology is a tool with the power to improve most of the problems of our society. Many times self-taught so I have extensive knowledge of various disciplines. The activities in my charge I carry out with a lot of energy and enthusiasm, always seeking to obtain the best result. I am Interested in Entrepreurship, Insurtech, Conversational AI, Blockchain, Web3 and UI/UX.",
+    email: "contact@example.com",
+    location: "Quito, Ecuador",
+  },
+  social: [
+    {
+      name: "GitHub",
+      icon: Github,
+      href: "https://github.com/jonra1993",
+    },
+    {
+      name: "Linkedin",
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/jonathan-ramiro-vargas-suasnavas-a29752b5/",
+    },
+    {
+      name: "Upwork",
+      icon: BriefcaseBusiness,
+      href: "https://www.upwork.com/fl/jonathanvargas21",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      href: "https://www.instagram.com/jona.ra/?hl=es-la",
+    },
+    {
+      name: "Email",
+      icon: Mail,
+      href: "mailto://jonathanvargas1104@gmail.com",
+    },
+  ],
 };
