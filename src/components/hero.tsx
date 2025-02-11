@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Script from "next/script";
 import { Button } from "@heroui/button";
+
 import { siteConfig } from "@/config/site";
 
 export const Hero = () => {
@@ -54,7 +55,7 @@ export const Hero = () => {
             <span className="gradient-text">Jonathan Vargas</span>
           </h1>
           <p className="text-2xl text-gray-300 mb-8">
-            Software Expert & Solution Architect
+            Software Expert & Solutions Architect
           </p>
           <div className="flex justify-center gap-4 mb-8">
             {siteConfig.social.map((social) => (
@@ -78,7 +79,7 @@ export const Hero = () => {
             className="mx-auto w-56 h-56 rounded-full shadow-lg"
           />
           <Button
-            className="relative bg-gradient-to-tr from-[#141E30] to-[#243B55] text-white shadow-lg mt-5 
+            className="relative bg-gradient-to-tr from-[#141E30] to-[#243B55] text-white shadow-lg mt-20 
              backdrop-blur-md bg-opacity-80 border-[#42A5E0] border-2 
              transition-all duration-300 ease-in-out 
              hover:scale-105 hover:border-[#66D9EF] 

@@ -1,62 +1,53 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@heroui/button";
-import { motion } from "framer-motion";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  ExternalLink,
-  Code,
-  Brain,
-  GraduationCap,
-  Quote,
-} from "lucide-react";
+import { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { Card, CardBody } from "@heroui/card";
 
 const quotes = [
   {
-    text: "The best way to predict the future is to invent it.",
-    author: "Alan Kay",
+    id: 0,
+    text: "Twenty years from now you will be more disappointed by the things you didn't do than by the things you did. So let go. Sail away from the safe harbor. Catch the trade winds in your sails. Explore, dream, discover.",
+    author: "Mark Twain",
   },
   {
-    text: "Innovation distinguishes between a leader and a follower.",
-    author: "Steve Jobs",
-  },
-  {
-    text: "The only way to do great work is to love what you do.",
-    author: "Steve Jobs",
-  },
-  {
-    text: "Code is like humor. When you have to explain it, it's bad.",
-    author: "Cory House",
+    id: 1,
+    text: "The only freedom that exists is in the mind, and it is called willpower. If we do not use it, we are not free.",
+    author: "Pepe Mujica",
   },
 ];
 
 export const Quotes = () => {
-  const [count, setCount] = useState(0);
+  const controls = useAnimation();
 
   return (
-    <section className="py-20">
+    <section className="py-20 overflow-hidden relative">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold mb-12 gradient-text text-center">
           Inspirational Quotes
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {quotes.map((quote, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              className="card-gradient rounded-xl p-8"
-            >
-              <Quote className="w-8 h-8 mb-4 text-cyan-400" />
-              <p className="text-gray-300 italic mb-4 text-lg">{quote.text}</p>
-              <p className="text-sm text-cyan-400">— {quote.author}</p>
-            </motion.div>
-          ))}
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            className="grid sm:grid-cols-1 md:flex md:space-x-8 justify-center gap-6"
+            animate={controls}
+          >
+            {quotes.map((quote) => (
+              <Card
+                key={quote.id}
+                className="max-w-96 min-h-48 p-6 flex flex-col bg-gray-800 rounded-xl shadow-lg 
+                  hover:backdrop-blur-lg hover:bg-opacity-70 hover:border-opacity-50 hover:shadow-xl"
+              >
+                <CardBody className="flex-grow flex flex-col justify-between overflow-visible">
+                  <p className="text-gray-300 italic text-lg leading-relaxed break-words whitespace-normal text-center">
+                    {quote.text}
+                  </p>
+                  <div className="mt-4 text-center">
+                    <p className="text-white font-semibold">{quote.author}</p>
+                  </div>
+                </CardBody>
+              </Card>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
