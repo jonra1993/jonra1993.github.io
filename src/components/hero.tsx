@@ -95,7 +95,7 @@ export const Hero = () => {
 
       {/* Scroll Indicator (Arrow) */}
       <motion.div
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white"
+        className="absolute bottom-6  text-white"
         initial={{ opacity: 1, y: 0 }}
         animate={hideArrow ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
